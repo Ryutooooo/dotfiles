@@ -90,7 +90,7 @@ augroup END
 " vundler config
 set nocompatible
 filetype off
-set rtp+=~/.vim/vundle.git/
+set rtp+=~/.vim/bundle/vundle/vundle.git
 call vundle#rc()
 " let Vundle manage Vundle
 " required!
@@ -110,7 +110,7 @@ Bundle 'scrooloose/syntastic.git'
 Bundle 'ngmy/vim-rubocop'
 Bundle 'tpope/vim-endwise'
 Bundle 'KeitaNakamura/railscasts.vim'
-Plugin 'itchyny/lightline.vim'
+Bundle 'itchyny/lightline.vim'
 " ...
 filetype plugin indent on     " required!
 "
