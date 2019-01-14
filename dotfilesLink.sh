@@ -5,5 +5,5 @@ do
     [ "$f" = ".gitignore" ] && continue
     [ "$f" = ".gitmodules" ] && continue
 
-    ln -snfv "$f" "$HOME"/"$f"
+    ln -snfv "dotfiles"/"$f" "$HOME"/"$f"
 done
