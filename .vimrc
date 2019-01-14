@@ -1,5 +1,4 @@
 syntax on
-colorscheme railscasts
 
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
@@ -89,9 +88,9 @@ augroup matchit
 augroup END
 
 " vundler config
-set nocompatible               " be iMproved
-filetype off                   " required!
-set rtp+=~/.vim/bundle/vundle/
+set nocompatible
+filetype off
+set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 " let Vundle manage Vundle
 " required!
