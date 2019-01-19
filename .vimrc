@@ -112,5 +112,6 @@ Bundle 'ngmy/vim-rubocop'
 Bundle 'tpope/vim-endwise'
 Bundle 'KeitaNakamura/railscasts.vim'
 Bundle 'itchyny/lightline.vim'
+Bundle 'codeape2/vim-multiple-monitors'
 " ...
 filetype plugin indent on     " required!
