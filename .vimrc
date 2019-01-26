@@ -20,6 +20,8 @@ set hidden
 set showcmd
 " バックスペースを使えるようにする
 set backspace=indent,eol,start
+" ビジュアルモードで選択したテキストがクリップボードに入るようにする。
+:set clipboard+=autoselect
 
 " ステータスライン
 let g:lightline = {}
