@@ -1,5 +1,4 @@
 syntax on
-colorscheme railscasts
 
 set encoding=utf-8
 set fileencodings=utf-8
@@ -52,7 +51,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 "================================================================
-"			Light line config
+"			Lightline config
 "================================================================
 let g:lightline = {
         \ 'colorscheme': 'wombat',
