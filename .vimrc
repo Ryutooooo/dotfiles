@@ -40,7 +40,7 @@ augroup END
 "================================================================
 " ハイライトを消す
 nnoremap <ESC><ESC> :noh<CR>
-
+nnoremap <S-f> :Files<CR>
 
 "================================================================
 "			NERDTree config
@@ -114,7 +114,7 @@ endfunction
 
 
 "================================================================
-"			Rubocop config
+"		  syntastic config
 "================================================================
 " シンタックスチェックのコマンド
 nnoremap <C-C> :w<CR>:SyntasticCheck<CR>
@@ -126,7 +126,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'passive', 'passive_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers=['rubocop']
+let g:syntastic_ruby_checkers = ['rubocop']
 
 
 "================================================================
@@ -166,6 +166,8 @@ Bundle 'tpope/vim-endwise'
 Bundle 'KeitaNakamura/railscasts.vim'
 Bundle 'itchyny/lightline.vim'
 Bundle 'codeape2/vim-multiple-monitors'
+Bundle 'junegunn/fzf'
+Bundle 'junegunn/fzf.vim'
 " ...
 filetype plugin indent on     " required!
 
