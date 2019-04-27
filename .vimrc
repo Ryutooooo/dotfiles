@@ -173,7 +173,6 @@ Bundle 'ngmy/vim-rubocop'
 Bundle 'tpope/vim-endwise'
 Bundle 'KeitaNakamura/railscasts.vim'
 Bundle 'itchyny/lightline.vim'
-Bundle 'codeape2/vim-multiple-monitors'
 Bundle 'junegunn/fzf'
 Bundle 'junegunn/fzf.vim'
 " ...
