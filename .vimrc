@@ -1,4 +1,6 @@
 syntax on
+runtime config/init/*.vim 
+runtime config/plugins/*.vim
 
 set encoding=utf-8
 set fileencodings=utf-8
