@@ -46,11 +46,14 @@ nnoremap <C-C> :w<CR>:SyntasticCheck<CR>
 " ハイライトを消す
 nnoremap <ESC><ESC> :noh<CR>
 
-" ファイル検索
-nnoremap <S-f> :Files<CR>
-
 " Terminal起動
 nnoremap <S-t> :terminal<CR>
+
+" fzf keymap
+let mapleader = "f"
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>c :Commands<CR>
 
 
 "================================================================
