@@ -27,3 +27,9 @@ set incsearch
 set wrapscan
 set hlsearch
 set number
+
+" ファイルの変更を移動時に読み込み
+augroup vimrc-checktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END

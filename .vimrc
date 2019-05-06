@@ -1,12 +1,6 @@
 runtime! config/init/*.vim 
 runtime! config/plugins/*.vim
 
-" ファイルの変更を移動時に読み込み
-augroup vimrc-checktime
-  autocmd!
-  autocmd WinEnter * checktime
-augroup END
-
 "================================================================
 "			Key map
 "================================================================
