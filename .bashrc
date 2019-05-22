@@ -1,5 +1,3 @@
-source ~/.git-completion.bash
-
 export PS1="[\[\e[1;37m\]\[\e[m\]\w]$ "
 
 export FZF_DEFAULT_OPTS='--reverse --border'
