@@ -14,9 +14,10 @@ nnoremap <ESC><ESC> :noh<CR>
 nnoremap <S-t> :terminal<CR>
 
 " fzf keymap
-let mapleader = "f"
+let mapleader = "\<S-f>"
 nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>f :GFiles<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>g :GFiles<CR>
 nnoremap <Leader>c :Commands<CR>
 
 "================================================================
