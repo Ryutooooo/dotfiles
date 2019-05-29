@@ -17,6 +17,7 @@ alias gg='git grep'
 alias gs='git status'
 alias gb='git branch'
 alias gp='git pull'
+alias gl='git log'
 
 
 #================================================================
@@ -35,16 +36,16 @@ vgrep(){
   fi
 }
 
-# gcheckout - checkout local branch
-gcheckout() {
+# checkout - checkout local branch
+checkout() {
   local branches branch
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# grcheckout - checkout remote branch
-grcheckout() {
+# rcheckout - checkout remote branch
+rcheckout() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
@@ -52,8 +53,8 @@ grcheckout() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# gbranch - delete local branch
-gbranch() {
+# branch - delete local branch
+branch() {
   local branches branch
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
@@ -61,7 +62,7 @@ gbranch() {
 }
 
 # gshow - git commit browser
-gshow() {
+show() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
