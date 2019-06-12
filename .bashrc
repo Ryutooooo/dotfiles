@@ -7,6 +7,7 @@ alias cat='cat -n'
 alias ls='ls -GF'
 alias la='ls -a'
 alias ts='tig status'
+alias relogin='exec $SHELL -l'
 
 
 #================================================================
