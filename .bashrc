@@ -21,9 +21,25 @@ alias gp='git pull'
 alias gl='git log'
 
 
+
 #================================================================
 #			Function
 #================================================================
+
+# close download notification
+cnd(){
+  cliclick c:1660,1025
+}
+
+# close notifications
+cn(){
+  close_count=$@
+  for n in `seq 1 $close_count`
+  do
+    cliclick c:1620,55
+    sleep 0.5
+  done
+}
 
 # the result by git grep pass to vim
 vgrep(){
