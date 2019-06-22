@@ -38,8 +38,8 @@ cn(){
   close_count=$@
   for n in `seq 1 $close_count`
   do
-    cliclick c:1620,55
-    sleep 0.5
+    cliclick c:1630,35
+    sleep 0.4
   done
 }
 
