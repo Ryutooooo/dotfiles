@@ -39,7 +39,7 @@ cn(){
   for n in `seq 1 $close_count`
   do
     cliclick c:1630,35
-    sleep 0.4
+    sleep 0.3
   done
 }
 
