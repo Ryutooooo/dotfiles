@@ -10,6 +10,7 @@ command Reload :source ~/.vimrc
 "================================================================
 "			Key map
 "================================================================
+
 " シンタックスチェックのコマンド
 nnoremap <C-C> :w<CR>:SyntasticCheck<CR>
 
@@ -33,18 +34,19 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'ngmy/vim-rubocop'
-Bundle 'tpope/vim-endwise'
-Bundle 'KeitaNakamura/railscasts.vim'
-Bundle 'itchyny/lightline.vim'
-Bundle 'junegunn/fzf'
-Bundle 'junegunn/fzf.vim'
+Plugin 'gmarik/vundle'
+Plugin 'tpope/vim-fugitive'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'tpope/vim-endwise'
+Plugin 'KeitaNakamura/railscasts.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'slim-template/vim-slim.git'
 filetype plugin indent on     " required!
 
