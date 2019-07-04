@@ -1,3 +1,6 @@
+"================================================================
+"     load config files
+"================================================================
 runtime! config/init/*.vim 
 runtime! config/plugins/*.vim
 
@@ -50,5 +53,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'slim-template/vim-slim.git'
+Plugin 'othree/yajs.vim'
+Plugin 'maxmellon/vim-jsx-pretty'
 filetype plugin indent on     " required!
 
