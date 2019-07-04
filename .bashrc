@@ -4,7 +4,6 @@ export FZF_DEFAULT_OPTS='--reverse --border'
 
 source $HOME/.git-completion.bash
 
-alias rm='rm -i'
 alias cat='cat -n'
 alias ls='ls -GF'
 alias la='ls -a'
@@ -27,7 +26,6 @@ alias gl='git log'
 #================================================================
 #			Function
 #================================================================
-
 # close download notification
 cnd(){
   cliclick c:1660,1025
