@@ -15,17 +15,23 @@ set showcmd
 set backspace=indent,eol,start
 set clipboard+=autoselect
 set virtualedit=onemore
-set smartindent
 set showmatch
 set wildmode=list:longest
-set expandtab
-set tabstop=2
 set shiftwidth=2
+set wrapscan
+
+set tabstop=2
+set expandtab
+set smartindent
+set shiftwidth=4
+
+set incsearch
 set ignorecase
 set smartcase
-set incsearch
-set wrapscan
 set hlsearch
+
+set wildmenu
+set history=500
 
 " ファイルの変更を移動時に読み込み
 augroup vimrc-checktime
