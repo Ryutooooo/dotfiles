@@ -23,7 +23,7 @@ set wrapscan
 set tabstop=2
 set expandtab
 set smartindent
-set shiftwidth=4
+set shiftwidth=2
 
 set incsearch
 set ignorecase

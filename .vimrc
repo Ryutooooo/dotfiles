@@ -13,8 +13,8 @@ command Reload :source ~/.vimrc
 "================================================================
 "			Key map
 "================================================================
-"NERDTree
-nnoremap <C-n> :NERDTree<CR>
+" NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " シンタックスチェックのコマンド
 nnoremap <C-C> :w<CR>:SyntasticCheck<CR>
