@@ -101,11 +101,11 @@ tabspaces: 8
 # Font configuration (changes require restart)
 font:
   normal:
-    family: "Ricty Diminished"
+    family: "Cica"
   bold:
-    family: "Ricty Diminished"
+    family: "Cica"
   italic:
-    family: "Ricty Diminished"
+    family: "Cica"
 
   # Point size
   size: 14
