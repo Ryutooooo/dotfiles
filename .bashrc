@@ -2,7 +2,7 @@ export PS1="[\[\e[1;37m\]\[\e[m\]\w]$ "
 export HISTSIZE=2000
 export HISTCONTROL=ignoredups 
 
-export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border --inline-info --preview 'head -100 {}'"
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -12,8 +12,6 @@ alias ls='ls -GF'
 alias la='ls -a'
 alias ts='tig status'
 alias relogin='exec $SHELL -l'
-alias fvim='vim $(fzf)'
-
 
 #================================================================
 #			Git alias
@@ -25,10 +23,23 @@ alias gb='git branch'
 alias gp='git pull'
 alias gl='git log'
 
-
 #================================================================
 #			Function
 #================================================================
+# tmux shortcut
+tm() {
+  if [ -n "${1}" ]; then
+    tmux a -t ${1} || tmux new -s ${1}
+  else
+    tmux ls
+  fi
+}
+
+# format "%Y%m%d%I%M"
+now(){
+  date +"%Y%m%d%I%M"
+}
+
 # close download notification
 cnd(){
   cliclick c:1660,1025
