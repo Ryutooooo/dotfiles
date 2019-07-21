@@ -13,7 +13,7 @@ set autoread
 set hidden
 set showcmd
 set backspace=indent,eol,start
-set clipboard+=autoselect
+set clipboard+=unnamed
 set virtualedit=onemore
 set showmatch
 set wildmode=list:longest
