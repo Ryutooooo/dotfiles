@@ -3,3 +3,5 @@ if [ -f ~/.bashrc ] ; then
 fi
 
 export LANG=ja_JP.UTF-8
+export EDITOR=vim
+
