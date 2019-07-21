@@ -1,14 +1,18 @@
 export PS1="[\[\e[1;37m\]\[\e[m\]\w]$ "
+export HISTSIZE=2000
+export HISTCONTROL=ignoredups 
 
-export FZF_DEFAULT_OPTS='--reverse --border'
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border --inline-info --preview 'head -100 {}'"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source $HOME/.git-completion.bash
 
-alias cat='cat -n'
 alias ls='ls -GF'
 alias la='ls -a'
 alias ts='tig status'
 alias relogin='exec $SHELL -l'
+alias fvim='vim $(fzf)'
 
 
 #================================================================
@@ -20,7 +24,6 @@ alias gs='git status'
 alias gb='git branch'
 alias gp='git pull'
 alias gl='git log'
-
 
 
 #================================================================
@@ -89,3 +92,16 @@ show() {
                 {}
 FZF-EOF"
 }
+
+# ssh - list up from ~/.ssh/config
+ssh() {
+  local sshLoginHost
+  sshLoginHost=`cat ~/.ssh/config | grep -i ^host | awk '{print $2}' | fzf`
+
+  if [ "$sshLoginHost" = "" ]; then
+    return 1
+  fi
+
+  ssh ${sshLoginHost}
+}
+
