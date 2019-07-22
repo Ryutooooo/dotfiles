@@ -104,15 +104,3 @@ show() {
 FZF-EOF"
 }
 
-# ssh - list up from ~/.ssh/config
-ssh() {
-  local sshLoginHost
-  sshLoginHost=`cat ~/.ssh/config | grep -i ^host | awk '{print $2}' | fzf`
-
-  if [ "$sshLoginHost" = "" ]; then
-    return 1
-  fi
-
-  ssh ${sshLoginHost}
-}
-
