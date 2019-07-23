@@ -2,7 +2,7 @@ export PS1="[\[\e[1;37m\]\[\e[m\]\w]$ "
 export HISTSIZE=2000
 export HISTCONTROL=ignoredups 
 
-export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border"
+export FZF_DEFAULT_OPTS="--layout=reverse"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -71,7 +71,7 @@ vgrep(){
 checkout() {
   local branches branch
   branches=$(git branch -vv) &&
-  branch=$(echo "$branches" | fzf +m) &&
+  branch=$(echo "$branches" | fzf --height 30% +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
@@ -80,7 +80,7 @@ rcheckout() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+           fzf-tmux --height 30% -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
@@ -88,7 +88,7 @@ rcheckout() {
 branch() {
   local branches branch
   branches=$(git branch -vv) &&
-  branch=$(echo "$branches" | fzf +m) &&
+  branch=$(echo "$branches" | fzf --height 30% +m) &&
   git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
