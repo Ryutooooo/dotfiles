@@ -33,6 +33,8 @@ set hlsearch
 set wildmenu
 set history=500
 
+set noshowmode
+
 " ファイルの変更を移動時に読み込み
 augroup vimrc-checktime
   autocmd!
