@@ -1,4 +1,4 @@
-export PS1="[\[\e[1;37m\]\[\e[m\]\w]$ "
+export PS1="[\[\e[1;37m\]\[\e[m\]\w]💰 "
 export HISTSIZE=2000
 export HISTCONTROL=ignoredups 
 
@@ -26,6 +26,11 @@ alias gl='git log'
 #================================================================
 #			Function
 #================================================================
+# get pod by name
+pod() {
+  kubectl get pods -n ${1} | grep ${2} | head -1 | cut -d ' ' -f 1
+}
+
 # tmux shortcut
 tm() {
   if [ -n "${1}" ]; then

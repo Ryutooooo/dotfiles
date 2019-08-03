@@ -16,9 +16,6 @@ command Reload :source ~/.vimrc
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
-" シンタックスチェックのコマンド
-nnoremap <C-C> :w<CR>:SyntasticCheck<CR>
-
 " ハイライトを消す
 nnoremap <ESC><ESC> :noh<CR>
 
