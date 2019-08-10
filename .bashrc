@@ -26,11 +26,6 @@ alias gl='git log'
 #================================================================
 #			Function
 #================================================================
-# get pod by name
-pod() {
-  kubectl get pods -n ${1} | grep ${2} | head -1 | cut -d ' ' -f 1
-}
-
 # tmux shortcut
 tm() {
   if [ -z $1 ]; then
@@ -43,6 +38,11 @@ tm() {
   else
     tmux new -s $1
   fi
+}
+
+# get pod by name
+pod() {
+  kubectl get pods -n ${1} | grep ${2} | head -1 | cut -d ' ' -f 1
 }
 
 # format "%Y%m%d%I%M"
