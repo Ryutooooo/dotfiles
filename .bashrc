@@ -33,10 +33,15 @@ pod() {
 
 # tmux shortcut
 tm() {
-  if [ -n "${1}" ]; then
-    tmux a -t ${1} || tmux new -s ${1}
+  if [ -z $1 ]; then
+    session=$(tmux ls | fzf --height 30% | cut -d ':' -f 1)
+    if [ -z $session ]; then
+      : #nothing
+    else
+      tmux a -t $session
+    fi
   else
-    tmux ls
+    tmux new -s $1
   fi
 }
 
