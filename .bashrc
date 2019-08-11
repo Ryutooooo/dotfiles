@@ -1,4 +1,4 @@
-export PS1="[\[\e[1;37m\]\[\e[m\]\w]💰 "
+export PS1="[\[\e[1;37m\]\[\e[m\]\w]$ "
 export HISTSIZE=2000
 export HISTCONTROL=ignoredups 
 
