@@ -16,8 +16,7 @@ alias relogin='exec $SHELL -l'
 #================================================================
 #			Git alias
 #================================================================
-alias grep='grep --color=auto'
-alias gg='git grep'
+alias gg='git grep -n'
 alias gs='git status'
 alias gb='git branch'
 alias gp='git pull'
@@ -113,4 +112,3 @@ show() {
                 {}
 FZF-EOF"
 }
-
