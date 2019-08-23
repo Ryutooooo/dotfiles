@@ -8,10 +8,14 @@ export FZF_DEFAULT_OPTS="--layout=reverse"
 
 source $HOME/.git-completion.bash
 
+#================================================================
+#			Alias
+#================================================================
 alias ls='ls -GF'
 alias la='ls -a'
 alias ts='tig status'
 alias relogin='exec $SHELL -l'
+alias k8s='kubectl'
 
 #================================================================
 #			Git alias
