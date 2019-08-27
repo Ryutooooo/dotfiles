@@ -25,6 +25,7 @@ alias gs='git status'
 alias gb='git branch'
 alias gp='git pull'
 alias gl='git log'
+alias gf='git fetch'
 
 #================================================================
 #			Function
