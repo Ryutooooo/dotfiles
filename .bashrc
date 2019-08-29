@@ -117,3 +117,30 @@ show() {
                 {}
 FZF-EOF"
 }
+
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+export HISTSIZE=9999
+
+#================================================================
+#     General
+#================================================================
+source /usr/local/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+
+GIT_PS1_SHOWDIRTYSTATE=true
+
+export PS1="[\[\e[1;37m\]\[\e[m\]\w]$(__git_ps1)$ "
+export HISTSIZE=2000
+export HISTCONTROL=ignoredups 
+
+export FZF_DEFAULT_OPTS="--layout=reverse"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
