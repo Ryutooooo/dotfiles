@@ -1,13 +1,3 @@
-export PS1="[\[\e[1;37m\]\[\e[m\]\w]$ "
-export HISTSIZE=2000
-export HISTCONTROL=ignoredups 
-
-export FZF_DEFAULT_OPTS="--layout=reverse"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-source $HOME/.git-completion.bash
-
 #================================================================
 #			Alias
 #================================================================
