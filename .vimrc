@@ -52,5 +52,6 @@ Plugin 'slim-template/vim-slim.git'
 Plugin 'othree/yajs.vim'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'w0rp/ale'
+Plugin 'tpope/vim-markdown'
 filetype plugin indent on     " required!
 
