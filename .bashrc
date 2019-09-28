@@ -20,6 +20,10 @@ alias gf='git fetch'
 #================================================================
 #			Function
 #================================================================
+kc() {
+  k8s config use-context $(k8s config get-contexts | fzf --height 30% +m | awk '{print $2}')
+}
+
 # tmux shortcut
 tm() {
   if [ -z $1 ]; then
@@ -32,6 +36,10 @@ tm() {
   else
     tmux new -s $1
   fi
+}
+
+current_branch() {
+  gb | grep '*' | cut -d ' ' -f 2
 }
 
 # get pod by name
