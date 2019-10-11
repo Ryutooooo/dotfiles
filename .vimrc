@@ -53,5 +53,6 @@ Plugin 'othree/yajs.vim'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-markdown'
+Plugin 'simeji/winresizer'
 filetype plugin indent on     " required!
 
