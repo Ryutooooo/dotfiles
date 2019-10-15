@@ -1,3 +1,8 @@
 [user]
-    name = Ryutooooo
-    email = rf.ryutooooo.0907@gmail.com
+  name = Ryutooooo
+  email = rf.ryutooooo.0907@gmail.com
+
+[alias]
+  s = status
+  b = branch
+  f = fetch
