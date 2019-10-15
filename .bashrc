@@ -38,6 +38,14 @@ tm() {
   fi
 }
 
+tmc() { 
+  tm `current_path`
+}
+
+current_path() {
+  pwd | rev | cut -d '/' -f 1 | rev
+}
+
 current_branch() {
   gb | grep '*' | cut -d ' ' -f 2
 }
