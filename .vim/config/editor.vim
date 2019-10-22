@@ -1,6 +1,8 @@
 syntax on
 colorscheme railscasts
 
+filetype plugin indent on
+
 set number
 set t_Co=256
 set fenc=utf-8
@@ -14,13 +16,7 @@ set clipboard+=unnamed
 set virtualedit=onemore
 set showmatch
 set wildmode=list:longest
-set shiftwidth=2
 set wrapscan
-
-set tabstop=2
-set expandtab
-set smartindent
-set shiftwidth=2
 
 set incsearch
 set ignorecase
