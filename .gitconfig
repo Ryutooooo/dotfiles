@@ -6,3 +6,4 @@
   s = status
   b = branch
   f = fetch
+  c = checkout

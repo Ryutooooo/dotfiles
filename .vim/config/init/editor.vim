@@ -3,9 +3,6 @@ colorscheme railscasts
 
 set number
 set t_Co=256
-set encoding=utf-8
-set fileencodings=utf-8
-set fileformats=unix,dos,mac
 set fenc=utf-8
 set nobackup
 set noswapfile

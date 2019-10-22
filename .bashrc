@@ -138,8 +138,6 @@ export HISTSIZE=9999
 #================================================================
 source /usr/local/etc/bash_completion.d/git-completion.bash
 
-export HISTCONTROL=ignoredups 
-
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
 eval "$(starship init bash)"
