@@ -6,6 +6,7 @@ alias la='ls -a'
 alias ts='tig status'
 alias relogin='exec $SHELL -l'
 alias k8s='kubectl'
+alias dc='docker-compose'
 
 #================================================================
 #			Git alias
