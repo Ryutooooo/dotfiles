@@ -22,7 +22,12 @@ alias gf='git fetch'
 #			Function
 #================================================================
 kc() {
-  k8s config use-context $(k8s config get-contexts | fzf --height 30% +m | awk '{print $2}')
+  CONTEXT=$(k8s config get-contexts | fzf --height 30% +m | awk '{print $2}')
+  if [ -z $CONTEXT ]; then
+    : #nothing
+  else
+    k8s config use-context $CONTEXT
+  fi
 }
 
 # tmux shortcut
