@@ -15,10 +15,10 @@ command Reload :source ~/.vimrc
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
-" ハイライトを消す
+" turn off hightlight
 nnoremap <ESC><ESC> :noh<CR>
 
-" Terminal起動
+" turn on Terminal
 nnoremap <S-t> :terminal<CR>
 
 " fzf keymap
