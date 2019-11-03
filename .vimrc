@@ -53,5 +53,6 @@ Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-markdown'
 Plugin 'simeji/winresizer'
+Plugin 'szw/vim-tags'
 filetype plugin indent on     " required!
 
