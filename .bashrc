@@ -7,6 +7,7 @@ alias ts='tig status'
 alias relogin='exec $SHELL -l'
 alias k8s='kubectl'
 alias dc='docker-compose'
+alias lz='lazygit'
 
 #================================================================
 #			Git alias
@@ -21,6 +22,10 @@ alias gf='git fetch'
 #================================================================
 #			Function
 #================================================================
+reauth() {
+  gcloud auth login && gcloud auth application-default login
+}
+
 kc() {
   CONTEXT=$(k8s config get-contexts | fzf --height 30% +m | awk '{print $2}')
   if [ -z $CONTEXT ]; then
