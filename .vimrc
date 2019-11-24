@@ -54,5 +54,6 @@ Plugin 'w0rp/ale'
 Plugin 'tpope/vim-markdown'
 Plugin 'simeji/winresizer'
 Plugin 'szw/vim-tags'
+Plugin 'fatih/vim-go'
 filetype plugin indent on     " required!
 
