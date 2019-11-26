@@ -1,5 +1,4 @@
 syntax on
-colorscheme railscasts
 
 filetype plugin indent on
 
