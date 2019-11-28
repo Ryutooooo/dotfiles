@@ -7,3 +7,6 @@
   b = branch
   f = fetch
   c = checkout
+
+[core]
+  excludesfile = ~/.gitignore_global
