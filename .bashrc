@@ -145,7 +145,7 @@ export FZF_DEFAULT_OPTS="--layout=reverse"
 
 # ignorespace+ignoredups = ignoreboth
 export HISTCONTROL=ignoreboth
-export HISTIGNORE="cd*"
+export HISTIGNORE="cd*:gs*:ts*:tm*:tmc*:vim*"
 
 function share_history {
     history -a
