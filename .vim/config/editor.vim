@@ -4,9 +4,6 @@ filetype plugin indent on
 
 set number
 set t_Co=256
-set fenc=utf-8
-set nobackup
-set noswapfile
 set autoread
 set hidden
 set showcmd
