@@ -49,5 +49,6 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
 Plugin 'simeji/winresizer'
 Plugin 'fatih/vim-go'
+Plugin 'soramugi/auto-ctags.vim'
 filetype plugin indent on     " required!
 
