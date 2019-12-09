@@ -135,16 +135,6 @@ show() {
 FZF-EOF"
 }
 
-function share_history {
-    history -a
-    history -c
-    history -r
-}
-
-PROMPT_COMMAND='share_history'
-shopt -u histappend
-export HISTSIZE=9999
-export HISTCONTROL=ignoredups 
 
 #================================================================
 #     General
@@ -153,8 +143,21 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
+# ignorespace+ignoredups = ignoreboth
+export HISTCONTROL=ignoreboth
+export HISTIGNORE="cd*"
+
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+shopt -u histappend
+export HISTSIZE=5000
+PROMPT_COMMAND="share_history"
+
+
+
 eval "$(starship init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-
