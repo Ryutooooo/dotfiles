@@ -2,7 +2,7 @@ syntax on
 
 filetype plugin indent on
 
-set number
+set relativenumber
 set t_Co=256
 set autoread
 set hidden
@@ -29,3 +29,6 @@ augroup vimrc-checktime
   autocmd!
   autocmd WinEnter * checktime
 augroup END
+
+" open cwindow when use vimgrep and grep, Ggrep
+autocmd QuickFixCmdPost *grep* cwindow
