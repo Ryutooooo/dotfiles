@@ -8,6 +8,7 @@ alias relogin='exec $SHELL -l'
 alias k8s='kubectl'
 alias dc='docker-compose'
 alias lz='lazygit'
+alias sed='gsed'
 
 #================================================================
 #			Git alias
