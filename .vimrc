@@ -4,29 +4,23 @@
 runtime! config/**/*.vim
 
 "================================================================
-"			Function
-"================================================================
-" reload!
-command Reload :source ~/.vimrc
-
-"================================================================
 "			Key map
 "================================================================
-" NERDTree
-nnoremap <C-n> :NERDTreeToggle<CR>
-
 " turn off hightlight
-nnoremap <ESC><ESC> :noh<CR>
+nmap <ESC><ESC> :noh<CR>
 
+let mapleader = "\<Space>"
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>g :GFiles<CR>
+nmap <Leader>c :Commands<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 " turn on Terminal
-nnoremap <S-t> :terminal<CR>
-
-" fzf keymap
-let mapleader = "\<S-f>"
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>g :GFiles<CR>
-nnoremap <Leader>c :Commands<CR>
+nmap <Leader>t :terminal<CR>
+" save file
+nmap <Leader>w :w<CR>
+" reload vimrc
+nmap <Leader>r :source ~/.vimrc<CR>
 
 "================================================================
 "			Vundle config
@@ -51,4 +45,3 @@ Plugin 'simeji/winresizer'
 Plugin 'fatih/vim-go'
 Plugin 'soramugi/auto-ctags.vim'
 filetype plugin indent on     " required!
-
