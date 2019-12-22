@@ -157,8 +157,6 @@ function share_history {
 shopt -u histappend
 PROMPT_COMMAND="share_history"
 
-
-
 eval "$(starship init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
