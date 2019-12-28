@@ -1,9 +1,4 @@
 "================================================================
-"     load config files
-"================================================================
-runtime! config/**/*.vim
-
-"================================================================
 "			Key map
 "================================================================
 " turn off hightlight
@@ -44,4 +39,10 @@ Plugin 'w0rp/ale'
 Plugin 'simeji/winresizer'
 Plugin 'fatih/vim-go'
 Plugin 'soramugi/auto-ctags.vim'
+Plugin 'morhetz/gruvbox'
 filetype plugin indent on     " required!
+
+"================================================================
+"     load config files
+"================================================================
+runtime! config/**/*.vim
