@@ -33,12 +33,19 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-endwise'
 Plugin 'itchyny/lightline.vim'
+" incremental search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+" auto lint tool
 Plugin 'w0rp/ale'
+"changging buff size easier
 Plugin 'simeji/winresizer'
+"golang plugin
 Plugin 'fatih/vim-go'
+"color scheme
 Plugin 'morhetz/gruvbox'
+"compelation
+Plugin 'ycm-core/YouCompleteMe'
 filetype plugin indent on     " required!
 
 "================================================================
