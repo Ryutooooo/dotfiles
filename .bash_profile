@@ -6,6 +6,9 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
+export GOPATH="/Users/ryutooooo/workspace/go"
+export PATH="$GOPATH/bin:$PATH"
+
 eval "$(anyenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
