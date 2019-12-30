@@ -9,8 +9,6 @@ export PATH="/usr/local/sbin:$PATH"
 eval "$(anyenv init -)"
 
 export GOPRIVATE=github.com/zeals-co-ltd/protobuf
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ryutooooo/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ryutooooo/google-cloud-sdk/path.bash.inc'; fi
