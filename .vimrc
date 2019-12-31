@@ -38,8 +38,6 @@ Plugin 'itchyny/lightline.vim'
 " incremental search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-" auto lint tool
-Plugin 'w0rp/ale'
 " changging buff size easier
 Plugin 'simeji/winresizer'
 " color scheme
