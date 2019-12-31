@@ -16,6 +16,8 @@ nmap <Leader>t :terminal<CR>
 nmap <Leader>w :w<CR>
 " reload vimrc
 nmap <Leader>r :source ~/.vimrc<CR>
+" turn on paste mode
+nmap <Leader>p :set paste!<CR>
 
 "================================================================
 "			Vundle config
