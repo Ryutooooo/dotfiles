@@ -26,6 +26,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
+Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
@@ -41,17 +42,14 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
 " changging buff size easier
 Plugin 'simeji/winresizer'
-" golang plugin
-Plugin 'fatih/vim-go'
 " color scheme
 Plugin 'morhetz/gruvbox'
-" compelation
-Plugin 'ycm-core/YouCompleteMe'
 " lsp plugin
 Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'mattn/vim-lsp-settings'
 filetype plugin indent on     " required!
 
 "================================================================
