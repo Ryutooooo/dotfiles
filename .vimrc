@@ -14,6 +14,8 @@ nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :terminal<CR>
 " save file
 nmap <Leader>w :w<CR>
+" close file
+nmap <Leader>q :q<CR>
 " reload vimrc
 nmap <Leader>r :source ~/.vimrc<CR>
 " turn on paste mode
