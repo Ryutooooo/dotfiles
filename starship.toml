@@ -1,0 +1,14 @@
+#================================================================
+#			starship confg
+#================================================================
+# Disable the newline at the start of the prompt
+add_newline = false
+
+[cmd_duration]
+min_time = 20
+
+[package]
+disabled = true
+
+[kubernetes]
+disabled = true
