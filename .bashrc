@@ -9,6 +9,7 @@ alias k8s='kubectl'
 alias dc='docker-compose'
 alias lz='lazygit'
 alias sed='gsed'
+alias python='python3'
 
 #================================================================
 #			Git alias
@@ -136,6 +137,10 @@ show() {
 FZF-EOF"
 }
 
+gcd() {
+  cd $(ghq root)/$(ghq list | fzf --height 30%)
+}
+
 
 #================================================================
 #     General
@@ -146,7 +151,7 @@ export FZF_DEFAULT_OPTS="--layout=reverse"
 
 # ignorespace+ignoredups = ignoreboth
 export HISTCONTROL=ignoreboth
-export HISTIGNORE="cd*:gs:gb:gf:ts:tm:tmc:show:checkout:vim*"
+export HISTIGNORE="cd:gs:gb:gf:ts:tm:tmc:show:vim"
 export HISTSIZE=7777
 
 function share_history {
