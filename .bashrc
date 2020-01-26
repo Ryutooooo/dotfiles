@@ -137,8 +137,15 @@ show() {
 FZF-EOF"
 }
 
+bind -x '"\C-g": "gcd"'
+
 gcd() {
-  cd $(ghq root)/$(ghq list | fzf --height 30%)
+  destination=$(ghq list | fzf --height 30%)
+  if [ -z $destination ];then
+    :
+  else
+    cd $(ghq root)/$destination
+  fi
 }
 
 
