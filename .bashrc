@@ -3,6 +3,7 @@
 #================================================================
 alias ls='ls -GF'
 alias la='ls -a'
+alias ll='ls -al'
 alias ts='tig status'
 alias relogin='exec $SHELL -l'
 alias k8s='kubectl'
@@ -34,6 +35,22 @@ kc() {
     : #nothing
   else
     k8s config use-context $CONTEXT
+  fi
+}
+
+bind -x '"\C-g": "gcd"'
+
+gcd() {
+  destination=$(ghq list | fzf --height 30%)
+  if [ -z $destination ];then
+    :
+  else
+    session=$(tmux ls | grep $(echo $destination | cut -d '/' -f 3))
+    if [[ -z $session ]];then
+      cd "$(ghq root)/$destination" && tmc
+    else
+      tmux a -t $(echo $destination | cut -d '/' -f 3)
+    fi
   fi
 }
 
@@ -135,17 +152,6 @@ show() {
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
                 {}
 FZF-EOF"
-}
-
-bind -x '"\C-g": "gcd"'
-
-gcd() {
-  destination=$(ghq list | fzf --height 30%)
-  if [ -z $destination ];then
-    :
-  else
-    cd $(ghq root)/$destination
-  fi
 }
 
 
