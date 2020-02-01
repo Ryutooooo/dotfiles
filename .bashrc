@@ -38,9 +38,9 @@ kc() {
   fi
 }
 
-bind -x '"\C-g": "gcd"'
+bind -x '"\C-g": "gtmcd"'
 
-gcd() {
+gtmcd() {
   destination=$(ghq list | fzf --height 30%)
   if [ -z $destination ];then
     :
@@ -51,6 +51,15 @@ gcd() {
     else
       tmux a -t $(echo $destination | cut -d '/' -f 3)
     fi
+  fi
+}
+
+gcd() {
+  destination=$(ghq list | fzf --height 30%)
+  if [ -z $destination ];then
+    :
+  else
+    cd "$(ghq root)/$destination"
   fi
 }
 

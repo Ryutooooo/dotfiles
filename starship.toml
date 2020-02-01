@@ -5,10 +5,14 @@
 add_newline = false
 
 [cmd_duration]
-min_time = 20
+min_time = 30
 
 [package]
 disabled = true
 
 [kubernetes]
-disabled = true
+disabled = false
+style = "bold blue"
+
+[time]
+disabled = false
