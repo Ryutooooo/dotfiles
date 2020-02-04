@@ -7,6 +7,7 @@ alias ll='ls -al'
 alias ts='tig status'
 alias relogin='exec $SHELL -l'
 alias k8s='kubectl'
+alias kn='kubens'
 alias dc='docker-compose'
 alias lz='lazygit'
 alias sed='gsed'
@@ -155,7 +156,7 @@ branch() {
 show() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+  fzf --height 100% --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
       --bind "ctrl-m:execute:
                 (grep -o '[a-f0-9]\{7\}' | head -1 |
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
@@ -169,7 +170,7 @@ FZF-EOF"
 #================================================================
 source /usr/local/etc/bash_completion.d/git-completion.bash
 
-export FZF_DEFAULT_OPTS="--layout=reverse"
+export FZF_DEFAULT_OPTS="--layout=reverse --height 35%"
 
 export HISTCONTROL=ignoredups
 export HISTIGNORE="la:cd:gs:gb:gf:ts:tm:tmc:show:vim"
