@@ -52,7 +52,9 @@ Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
 " editorconfig
 Plugin 'editorconfig/editorconfig-vim'
-filetype plugin indent on     " required!
+" golang plugin
+Plugin 'fatih/vim-go'
+filetype plugin indent on " required!
 
 "================================================================
 "     load config files
