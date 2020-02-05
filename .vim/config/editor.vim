@@ -31,6 +31,3 @@ augroup vimrc-checktime
   autocmd!
   autocmd WinEnter * checktime
 augroup END
-
-" open cwindow when use vimgrep and grep, Ggrep
-autocmd QuickFixCmdPost *grep* cwindow
