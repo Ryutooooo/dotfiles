@@ -54,6 +54,8 @@ Plugin 'mattn/vim-lsp-settings'
 Plugin 'editorconfig/editorconfig-vim'
 " golang plugin
 Plugin 'fatih/vim-go'
+" grep plugin
+Plugin 'rking/ag.vim'
 filetype plugin indent on " required!
 
 "================================================================
