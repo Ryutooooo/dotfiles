@@ -7,7 +7,6 @@ alias ll='ls -al'
 alias ts='tig status'
 alias relogin='exec $SHELL -l'
 alias k8s='kubectl'
-alias kn='kubens'
 alias dc='docker-compose'
 alias lz='lazygit'
 alias sed='gsed'
@@ -30,8 +29,17 @@ reauth() {
   gcloud auth login && gcloud auth application-default login
 }
 
+kn() {
+  NS=$(k8s get namespaces --no-headers | fzf --height 30% | awk '{print $1}')
+  if [ -z $NS ]; then
+    : #nothing
+  else
+    k8s config set-context $(k8s config current-context) --namespace=$NS
+  fi
+}
+
 kc() {
-  CONTEXT=$(k8s config get-contexts | fzf --height 30% +m | awk '{print $2}')
+  CONTEXT=$(k8s config get-contexts --no-headers | fzf --height 30% +m | awk '{print $2}')
   if [ -z $CONTEXT ]; then
     : #nothing
   else
@@ -170,7 +178,7 @@ FZF-EOF"
 #================================================================
 source /usr/local/etc/bash_completion.d/git-completion.bash
 
-export FZF_DEFAULT_OPTS="--layout=reverse --height 35%"
+export FZF_DEFAULT_OPTS="--layout=reverse"
 
 export HISTCONTROL=ignoredups
 export HISTIGNORE="la:cd:gs:gb:gf:ts:tm:tmc:show:vim"
