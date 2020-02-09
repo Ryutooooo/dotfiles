@@ -56,6 +56,8 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'fatih/vim-go'
 " grep plugin
 Plugin 'rking/ag.vim'
+" html emmet
+Plugin 'mattn/emmet-vim'
 filetype plugin indent on " required!
 
 "================================================================
