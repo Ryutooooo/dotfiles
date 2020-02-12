@@ -6,7 +6,9 @@ alias la='ls -a'
 alias ll='ls -al'
 alias ts='tig status'
 alias relogin='exec $SHELL -l'
-alias k8s='kubectl'
+alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
 alias dc='docker-compose'
 alias lz='lazygit'
 alias sed='gsed'
@@ -25,25 +27,26 @@ alias gf='git fetch'
 #================================================================
 #			Function
 #================================================================
+
 reauth() {
   gcloud auth login && gcloud auth application-default login
 }
 
 kn() {
-  NS=$(k8s get namespaces --no-headers | fzf --height 30% | awk '{print $1}')
+  NS=$(kubectl get namespaces --no-headers | fzf --height 30% | awk '{print $1}')
   if [ -z $NS ]; then
     : #nothing
   else
-    k8s config set-context $(k8s config current-context) --namespace=$NS
+    kubectl config set-context $(kubectl config current-context) --namespace=$NS
   fi
 }
 
 kc() {
-  CONTEXT=$(k8s config get-contexts --no-headers | fzf --height 30% +m | awk '{print $2}')
+  CONTEXT=$(kubectl config get-contexts --no-headers | fzf --height 30% +m | awk '{print $2}')
   if [ -z $CONTEXT ]; then
     : #nothing
   else
-    k8s config use-context $CONTEXT
+    kubectl config use-context $CONTEXT
   fi
 }
 
