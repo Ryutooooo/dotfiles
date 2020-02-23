@@ -58,6 +58,8 @@ Plugin 'fatih/vim-go'
 Plugin 'rking/ag.vim'
 " html emmet
 Plugin 'mattn/emmet-vim'
+" md preview
+Plugin 'MikeCoder/markdown-preview.vim'
 filetype plugin indent on " required!
 
 "================================================================
