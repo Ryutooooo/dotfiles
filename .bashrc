@@ -13,6 +13,7 @@ alias dc='docker-compose'
 alias lz='lazygit'
 alias sed='gsed'
 alias python='python3'
+alias dig='dig +noedns'
 
 #================================================================
 #			Git alias
