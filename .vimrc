@@ -51,7 +51,7 @@ Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'mattn/vim-lsp-settings'
 " editorconfig
-Plugin 'editorconfig/editorconfig-vim'
+Plugin 'sgur/vim-editorconfig'
 " golang plugin
 Plugin 'fatih/vim-go'
 " grep plugin
@@ -60,7 +60,6 @@ Plugin 'rking/ag.vim'
 Plugin 'mattn/emmet-vim'
 " md preview
 Plugin 'MikeCoder/markdown-preview.vim'
-filetype plugin indent on " required!
 
 "================================================================
 "     load config files
