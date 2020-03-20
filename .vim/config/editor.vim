@@ -1,4 +1,5 @@
-set background=dark    " Setting dark mode
+" Setting dark mode
+set background=dark    
 syntax on
 colorscheme gruvbox
 
