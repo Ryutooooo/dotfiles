@@ -36,7 +36,6 @@ Plugin 'FuzzyFinder'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-endwise'
-Plugin 'itchyny/lightline.vim'
 " incremental search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
