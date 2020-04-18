@@ -32,3 +32,5 @@ augroup vimrc-checktime
   autocmd!
   autocmd WinEnter * checktime
 augroup END
+
+let g:python_highlight_all = 1

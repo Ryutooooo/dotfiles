@@ -59,6 +59,10 @@ Plugin 'rking/ag.vim'
 Plugin 'mattn/emmet-vim'
 " md preview
 Plugin 'MikeCoder/markdown-preview.vim'
+" pyhton
+Plugin 'vim-python/python-syntax'
+" javascript
+Plugin 'othree/yajs.vim'
 
 "================================================================
 "     load config files
