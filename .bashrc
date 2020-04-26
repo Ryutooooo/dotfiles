@@ -183,8 +183,8 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
-export HISTCONTROL=ignoredups
-export HISTIGNORE="la:cd:gs:gb:gf:ts:tm:tmc:show:vim"
+export HISTCONTROL=erasedups
+export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim"
 export HISTSIZE=7777
 
 function share_history {
