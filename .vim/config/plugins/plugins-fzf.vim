@@ -1,7 +1,7 @@
 "================================================================
 "			fzf config
 "================================================================
-let g:fzf_layout = { 'down': '~15%' }
+let g:fzf_layout = { 'down': '~25%' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
