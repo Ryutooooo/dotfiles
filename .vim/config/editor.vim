@@ -27,6 +27,7 @@ set history=500
 
 set noshowmode
 
+
 " ファイルの変更を移動時に読み込み
 augroup vimrc-checktime
   autocmd!
@@ -34,3 +35,5 @@ augroup vimrc-checktime
 augroup END
 
 let g:python_highlight_all = 1
+
+let g:syntastic_yaml_checkers = ['yamllint']
