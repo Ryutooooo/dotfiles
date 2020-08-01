@@ -13,6 +13,7 @@ alias dc='docker-compose'
 alias lz='lazygit'
 alias sed='gsed'
 alias dig='dig +noedns'
+alias python='python3'
 
 #================================================================
 #			Git alias
@@ -184,7 +185,7 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
 export HISTCONTROL=erasedups
-export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim"
+export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn"
 export HISTSIZE=7777
 
 function share_history {
