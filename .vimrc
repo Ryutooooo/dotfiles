@@ -2,9 +2,9 @@
 "			Key map
 "================================================================
 " turn off hightlight
-nmap <ESC><ESC> :<C-u>noh<CR>
+nmap <ESC><ESC> :noh<CR>
 
-let g:mapleader = "\<Space>"
+let mapleader = "\<Space>"
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>g :GFiles<CR>
@@ -29,12 +29,13 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Plugin 'gmarik/vundle'
+" git action
+Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tpope/vim-endwise'
-" git action
-Plugin 'tpope/vim-fugitive'
 " incremental search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
@@ -52,14 +53,18 @@ Plugin 'mattn/vim-lsp-settings'
 Plugin 'sgur/vim-editorconfig'
 " golang plugin
 Plugin 'fatih/vim-go'
-" python plugin
-Plugin 'vim-python/python-syntax'
 " grep plugin
 Plugin 'rking/ag.vim'
 " html emmet
 Plugin 'mattn/emmet-vim'
+" md preview
+Plugin 'MikeCoder/markdown-preview.vim'
+" pyhton
+Plugin 'vim-python/python-syntax'
+" javascript
+Plugin 'othree/yajs.vim'
 
 "================================================================
 "     load config files
 "================================================================
-runtime! ./config/**/*.vim
+runtime! config/**/*.vim
