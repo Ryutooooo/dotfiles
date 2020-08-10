@@ -8,6 +8,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 eval "$(anyenv init -)"
 
+export GOPATH=$HOME/.go
 export GOPRIVATE=github.com/zeals-co-ltd/protobuf
 
 # The next line updates PATH for the Google Cloud SDK.
