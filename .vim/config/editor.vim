@@ -11,6 +11,7 @@ set autoread
 set hidden
 set showcmd
 set backspace=indent,eol,start
+" copy os clipboard
 set clipboard+=unnamed
 set virtualedit=onemore
 set showmatch
