@@ -21,48 +21,76 @@ nmap <Leader>r :source ~/.vimrc<CR>
 " turn on paste mode
 nmap <Leader>p :set paste!<CR>
 
-"================================================================
-"			Vundle config
-"================================================================
+
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-Plugin 'gmarik/vundle'
 " git action
-Plugin 'tpope/vim-fugitive'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tpope/vim-endwise'
+"Plugin 'FuzzyFinder'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'tpope/vim-endwise'
 " incremental search
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-" changging buff size easier
-Plugin 'simeji/winresizer'
-" color scheme
-Plugin 'morhetz/gruvbox'
+"Plugin 'junegunn/fzf'
+"Plugin 'junegunn/fzf.vim'
 " lsp plugin
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'mattn/vim-lsp-settings'
-" editorconfig
-Plugin 'sgur/vim-editorconfig'
+"Plugin 'prabirshrestha/async.vim'
+"Plugin 'prabirshrestha/asyncomplete.vim'
+"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+"Plugin 'prabirshrestha/vim-lsp'
+"Plugin 'mattn/vim-lsp-settings'
 " golang plugin
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 " grep plugin
-Plugin 'rking/ag.vim'
+"Plugin 'rking/ag.vim'
 " html emmet
-Plugin 'mattn/emmet-vim'
+"Plugin 'mattn/emmet-vim'
 " md preview
-Plugin 'MikeCoder/markdown-preview.vim'
+"Plugin 'MikeCoder/markdown-preview.vim'
 " pyhton
-Plugin 'vim-python/python-syntax'
+"Plugin 'vim-python/python-syntax'
 " javascript
-Plugin 'othree/yajs.vim'
+"Plugin 'othree/yajs.vim'
+
+
+"================================================================
+"     vim-plug config files
+"================================================================
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+" git stuff in vim
+Plug 'tpope/vim-fugitive'
+
+" incremental search commands
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+" l9 provides some utility functions
+Plug 'vim-scripts/L9'
+
+" change buffer size
+Plug 'simeji/winresizer'
+
+" source tree
+Plug 'scrooloose/nerdtree'
+
+" editorconfig
+Plug 'sgur/vim-editorconfig'
+
+" color scheme
+Plug 'morhetz/gruvbox'
+
+" markdown preview
+Plug 'previm/previm'
+
+" lsp
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+
+" Initialize plugin system
+call plug#end()
+
 
 "================================================================
 "     load config files
