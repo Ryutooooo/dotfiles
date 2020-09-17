@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ./dotfilesLink.sh
 echo "created symbolic link"
 
