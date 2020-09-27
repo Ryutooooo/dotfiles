@@ -21,40 +21,19 @@ nmap <Leader>r :source ~/.vimrc<CR>
 " turn on paste mode
 nmap <Leader>p :set paste!<CR>
 
-
 set nocompatible
-" git action
-"Plugin 'FuzzyFinder'
-"Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'tpope/vim-endwise'
-" incremental search
-"Plugin 'junegunn/fzf'
-"Plugin 'junegunn/fzf.vim'
-" lsp plugin
-"Plugin 'prabirshrestha/async.vim'
-"Plugin 'prabirshrestha/asyncomplete.vim'
-"Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-"Plugin 'prabirshrestha/vim-lsp'
-"Plugin 'mattn/vim-lsp-settings'
-" golang plugin
 "Plugin 'fatih/vim-go'
-" grep plugin
 "Plugin 'rking/ag.vim'
-" html emmet
 "Plugin 'mattn/emmet-vim'
-" md preview
-"Plugin 'MikeCoder/markdown-preview.vim'
-" pyhton
-"Plugin 'vim-python/python-syntax'
-" javascript
-"Plugin 'othree/yajs.vim'
-
 
 "================================================================
 "     vim-plug config files
 "================================================================
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+
+Plug 'vim-scripts/FuzzyFinder'
+
 " git stuff in vim
 Plug 'tpope/vim-fugitive'
 
@@ -79,6 +58,9 @@ Plug 'morhetz/gruvbox'
 
 " markdown preview
 Plug 'previm/previm'
+
+" statusline
+Plug 'itchyny/lightline.vim'
 
 " lsp
 Plug 'prabirshrestha/async.vim'
