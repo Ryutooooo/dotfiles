@@ -22,17 +22,21 @@ brew "cmake"
 brew "coreutils"
 brew "cowsay"
 brew "curl"
+brew "direnv"
 brew "docutils"
 brew "figlet"
 brew "firebase-cli"
 brew "fortune"
 brew "fswatch"
 brew "fzf"
+brew "gh"
 brew "ghq"
 brew "git"
 brew "gnu-sed"
 brew "harfbuzz"
+brew "pango"
 brew "graphviz"
+brew "hadolint"
 brew "htop"
 brew "imagemagick"
 brew "inetutils"
@@ -57,6 +61,7 @@ brew "ripgrep"
 brew "rsync"
 brew "ruby"
 brew "skaffold"
+brew "source-highlight"
 brew "starship"
 brew "stern"
 brew "telnet"
@@ -73,14 +78,15 @@ brew "yarn"
 brew "shyiko/kubesec/kubesec"
 cask "adoptopenjdk"
 cask "alacritty"
+cask "brooklyn"
 cask "ngrok"
 mas "1Password 7", id: 1333542190
 mas "Bear", id: 1091189122
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
-mas "LINE", id: 539883307
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
+mas "Vimari", id: 1480933944
 mas "Xcode", id: 497799835
