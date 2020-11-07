@@ -1,9 +1,9 @@
+filetype plugin indent on
+
 " Setting dark mode
 set background=dark    
 syntax on
 colorscheme gruvbox
-
-filetype plugin indent on
 
 set number
 set t_Co=256

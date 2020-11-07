@@ -16,12 +16,15 @@ nmap <Leader>t :terminal<CR>
 nmap <Leader>w :w<CR>
 " close file
 nmap <Leader>q :q<CR>
+" close vim 
+nmap <Leader>a :qa<CR>
 " reload vimrc
 nmap <Leader>r :source ~/.vimrc<CR>
 " turn on paste mode
 nmap <Leader>p :set paste!<CR>
 
 set nocompatible
+
 "Plugin 'fatih/vim-go'
 "Plugin 'rking/ag.vim'
 "Plugin 'mattn/emmet-vim'
