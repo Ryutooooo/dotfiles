@@ -10,12 +10,12 @@ alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
 alias kl='kubectl logs -f'
-alias ke='kubeclt exec'
+alias ke='kubectl exec'
 alias dc='docker-compose'
 alias lz='lazygit'
 alias sed='gsed'
 alias dig='dig +noedns'
-alias python='python3'
+alias books='cp -r ~/Library/Mobile\ Documents/iCloud~com~apple~iBooks ~/Documents/ALLMYBOOKS'
 
 #================================================================
 #			Git alias
@@ -30,10 +30,6 @@ alias gf='git fetch'
 #================================================================
 #			Function
 #================================================================
-
-reauth() {
-  gcloud auth login && gcloud auth application-default login
-}
 
 kn() {
   NS=$(kubectl get namespaces --no-headers | fzf --height 30% | awk '{print $1}')

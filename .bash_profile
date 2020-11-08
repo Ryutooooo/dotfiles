@@ -6,6 +6,8 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
+export CLOUDSDK_PYTHON=python
+
 eval "$(anyenv init -)"
 
 export GOPATH=$HOME/.go
