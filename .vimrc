@@ -60,7 +60,7 @@ Plug 'sgur/vim-editorconfig'
 Plug 'morhetz/gruvbox'
 
 " markdown preview
-Plug 'previm/previm'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " statusline
 Plug 'itchyny/lightline.vim'
