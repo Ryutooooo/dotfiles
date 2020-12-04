@@ -28,11 +28,34 @@ alias gl='git log'
 alias gf='git fetch'
 
 #================================================================
+#			Key bind
+#================================================================
+bind -x '"\C-g": "gtmcd"'
+bind -x '"\C-v": "vim"'
+
+
+#================================================================
 #			Function
 #================================================================
 
+reauth() { 
+  gcloud auth login && gcloud auth application-default login
+}
+
+set_ctx() {
+  for c in $(get_ctx $1); do gcloud container clusters get-credentials $c --project $1 ; done
+}
+
+get_ctx() {
+  gcloud container clusters list --project $1 | grep -v NAME | cut -d ' ' -f 1
+}
+
+delete_ctx() {
+  for c in $(kubectl config get-contexts -o name); do kubectl config delete-context $c ; done
+}
+
 kn() {
-  NS=$(kubectl get namespaces --no-headers | fzf --height 30% | awk '{print $1}')
+  NS=$(kubectl get namespaces --no-headers | fzf --height 30% | cut -d ' ' -f 1)
   if [ -z $NS ]; then
     : #nothing
   else
@@ -48,8 +71,6 @@ kc() {
     kubectl config use-context $CONTEXT
   fi
 }
-
-bind -x '"\C-g": "gtmcd"'
 
 gtmcd() {
   destination=$(ghq list | fzf --height 30%)
