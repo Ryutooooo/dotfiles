@@ -200,13 +200,13 @@ FZF-EOF"
 #     General
 #================================================================
 source /usr/local/etc/bash_completion.d/git-completion.bash
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
 export HISTCONTROL=erasedups
-export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn"
-export HISTSIZE=7777
-
+export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn:pwd"
+export HISTSIZE=9999
 function share_history {
     history -a
     history -c
@@ -216,7 +216,4 @@ shopt -u histappend
 PROMPT_COMMAND="share_history"
 
 eval "$(starship init bash)"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 cowsay -f tux $(fortune)
