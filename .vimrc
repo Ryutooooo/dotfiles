@@ -75,10 +75,8 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 
-
 " Initialize plugin system
 call plug#end()
-
 
 "================================================================
 "     load config files
