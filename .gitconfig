@@ -9,7 +9,13 @@
   c = checkout
 
 [core]
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/ryutooooo/.gitignore_global
 
 [ghq]
   root = /Users/ryutooooo/.ghq
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

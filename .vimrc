@@ -75,6 +75,9 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 
+" CSV formatter
+Plug 'chrisbra/csv.vim'
+
 " Initialize plugin system
 call plug#end()
 

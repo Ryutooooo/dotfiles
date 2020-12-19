@@ -55,7 +55,7 @@ delete_ctx() {
 }
 
 kn() {
-  NS=$(kubectl get namespaces --no-headers -o name | cut -d '/' -f 2 | fzf --height 30%)
+  NS=$(kubectl get namespaces -o name | cut -d '/' -f 2 | fzf --height 30%)
   if [ -z $NS ]; then
     : #nothing
   else
