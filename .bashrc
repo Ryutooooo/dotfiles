@@ -121,11 +121,6 @@ current_branch() {
   gb | grep '*' | cut -d ' ' -f 2
 }
 
-# get pod by name
-pod() {
-  kubectl get pods -n ${1} | grep ${2} | head -1 | cut -d ' ' -f 1
-}
-
 # format "%Y%m%d%I%M"
 now(){
   date +"%Y%m%d%I%M"
@@ -144,18 +139,6 @@ cn(){
     cliclick c:1630,35
     sleep 0.3
   done
-}
-
-# the result by git grep pass to vim
-vgrep(){
-  name_number=$(git grep $@ | fzf | cut -d ":" -f 1,2)
-  if [ -n "$name_number" ]; then
-    name=$(echo $name_number | cut -d ":" -f 1)
-    number=$(echo $name_number | cut -d ":" -f 2)
-    vim -c $number $name
-  else
-    echo 'fileが見つかりません'
-  fi
 }
 
 # checkout - checkout local branch
