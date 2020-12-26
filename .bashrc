@@ -50,7 +50,7 @@ get_ctx() {
   gcloud container clusters list --project $1 | grep -v NAME | cut -d ' ' -f 1
 }
 
-delete_ctx() {
+rm_ctx() {
   for c in $(kubectl config get-contexts -o name); do kubectl config delete-context $c ; done
 }
 
@@ -64,7 +64,7 @@ kn() {
 }
 
 kc() {
-  CONTEXT=$(kubectl config get-contexts --no-headers | fzf --height 30% +m | awk '{print $2}')
+  CONTEXT=$(kubectl config get-contexts --no-headers | awk '{print $2}' | fzf --height 30%)
   if [ -z $CONTEXT ]; then
     : #nothing
   else
@@ -73,7 +73,7 @@ kc() {
 }
 
 gtmcd() {
-  destination=$(ghq list | fzf --height 30%)
+  destination=$(ghq list | fzf --height 40%)
   if [ -z $destination ];then
     :
   else
