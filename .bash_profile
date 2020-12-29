@@ -21,6 +21,9 @@ if [ -f '/Users/ryutooooo/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ryut
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ryutooooo/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ryutooooo/google-cloud-sdk/completion.bash.inc'; fi
 
+# for nand2tetris
+export PATH="$PATH:`ghq root`/`ghq list | grep nand`/tools"
+
 if [ -f ~/.bashrc ] ; then
 . ~/.bashrc
 fi
