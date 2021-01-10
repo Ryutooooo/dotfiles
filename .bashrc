@@ -189,7 +189,7 @@ export FZF_DEFAULT_OPTS="--layout=reverse"
 
 export HISTCONTROL=erasedups
 export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn:pwd"
-export HISTSIZE=9999
+export HISTSIZE=99999
 function share_history {
     history -a
     history -c
