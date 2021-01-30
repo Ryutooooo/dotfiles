@@ -72,14 +72,18 @@ kc() {
   fi
 }
 
+ghq_selector() {
+  ghq list --full-path | grep $(ghq list | fzf --height 30%)
+}
+
 gtmcd() {
-  destination=$(ghq list | fzf --height 40%)
+  destination=$(ghq_selector)
   if [ -z $destination ];then
     :
   else
     session=$(tmux ls | grep $(echo $destination | cut -d '/' -f 3))
     if [[ -z $session ]];then
-      cd "$(ghq root)/$destination" && tmc
+      cd $destination && tmc
     else
       tmux a -t $(echo $destination | cut -d '/' -f 3)
     fi
@@ -87,12 +91,7 @@ gtmcd() {
 }
 
 gcd() {
-  destination=$(ghq list | fzf --height 30%)
-  if [ -z $destination ];then
-    :
-  else
-    cd "$(ghq root)/$destination"
-  fi
+  cd $(ghq_selector)
 }
 
 # tmux shortcut
