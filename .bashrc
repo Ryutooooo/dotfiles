@@ -38,6 +38,17 @@ bind -x '"\C-v": "vim"'
 #			Function
 #================================================================
 
+cleanup() {
+  # Homebrew part
+  rm -rf ~/Library/Caches/Homebrew
+  brew cleanup -s 
+  rm -rf $(brew --cache) 
+  # remove DerivedData
+  rm -rf ~/Library/Developer/Xcode/DerivedData/ 
+  # remove Xcode caches
+  rm -rf ~/Library/Caches/com.apple.dt.Xcode/
+}
+
 reauth() { 
   gcloud auth login && gcloud auth application-default login
 }
