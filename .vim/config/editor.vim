@@ -26,6 +26,10 @@ set hlsearch
 set wildmenu
 set history=500
 
+set smartindent
+
+au FileType go setlocal sw=4 ts=4 noet
+
 " ファイルの変更を移動時に読み込み
 augroup vimrc-checktime
   autocmd!
