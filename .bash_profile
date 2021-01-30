@@ -11,7 +11,7 @@ export CLOUDSDK_PYTHON=python
 eval "$(anyenv init -)"
 eval "$(nodenv init -)"
 
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/.go:`ghq root | cut -d '/' -f 1,2,3,4`
 export GOPRIVATE=github.com/zeals-co-ltd/protobuf
 
 export PATH="$GOPATH/bin:$PATH"

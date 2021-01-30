@@ -12,7 +12,9 @@
 	excludesfile = /Users/ryutooooo/.gitignore_global
 
 [ghq]
-  root = /Users/ryutooooo/.ghq
+  	root = /Users/ryutooooo/.ghq/src
+	root = /Users/ryutooooo/.go/src
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
