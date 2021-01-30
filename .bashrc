@@ -62,6 +62,7 @@ get_ctx() {
 }
 
 rm_ctx() {
+  kubectl config unset current-context
   for c in $(kubectl config get-contexts -o name); do kubectl config delete-context $c ; done
 }
 
@@ -197,15 +198,17 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
-export HISTCONTROL=erasedups
-export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn:pwd"
-export HISTSIZE=99999
 function share_history {
     history -a
     history -c
     history -r
 }
 shopt -u histappend
+
+export HISTCONTROL=erasedups
+export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn:pwd"
+export HISTSIZE=7777
+
 PROMPT_COMMAND="share_history"
 
 eval "$(starship init bash)"
