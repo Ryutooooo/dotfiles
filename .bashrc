@@ -85,7 +85,12 @@ kc() {
 }
 
 ghq_selector() {
-  ghq list --full-path | grep $(ghq list | fzf --height 30%)
+  destination=$(ghq list | fzf --height 30%)
+  if [ -z $destination ]; then
+    : # nothing
+  else
+   ghq list --full-path | grep $destination
+  fi
 }
 
 gtmcd() {
