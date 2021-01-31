@@ -9,3 +9,5 @@ au Filetype go nmap <leader>v <Plug>(go-def-vertical)
 let g:go_fmt_command = "goimports"
 
 let g:go_term_mode = 'split'
+
+let g:go_template_autocreate = 0
