@@ -98,17 +98,17 @@ gtmcd() {
   if [ -z $destination ];then
     :
   else
-    session=$(tmux ls | grep $(echo $destination | cut -d '/' -f 3))
+    session=$(tmux ls | grep $(echo $destination | cut -d '/' -f 6))
     if [[ -z $session ]];then
       cd $destination && tmc
     else
-      tmux a -t $(echo $destination | cut -d '/' -f 3)
+      tmux a -t $(echo $destination | cut -d '/' -f 6)
     fi
   fi
 }
 
 gcd() {
-  cd $(ghq_selector)
+  cd $(ghq list --full-path | fzf --height 30%)
 }
 
 # tmux shortcut
