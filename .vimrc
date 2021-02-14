@@ -78,6 +78,10 @@ Plug 'mattn/vim-lsp-settings'
 " CSV formatter
 Plug 'chrisbra/csv.vim'
 
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
 " Initialize plugin system
 call plug#end()
 
