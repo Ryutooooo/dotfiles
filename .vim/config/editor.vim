@@ -3,7 +3,7 @@ filetype plugin indent on
 " Setting dark mode
 set background=dark    
 syntax on
-colorscheme gruvbox
+colorscheme monokai
 
 set number
 set t_Co=256
