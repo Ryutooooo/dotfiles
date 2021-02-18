@@ -23,6 +23,9 @@ nmap <Leader>r :source ~/.vimrc<CR>
 " turn on paste mode
 nmap <Leader>p :set paste!<CR>
 
+nmap <Tab> gt
+nmap <S-Tab> gT
+
 set nocompatible
 
 "Plugin 'fatih/vim-go'
