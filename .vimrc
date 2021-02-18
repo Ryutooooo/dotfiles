@@ -28,7 +28,6 @@ nmap <S-Tab> gT
 
 set nocompatible
 
-"Plugin 'fatih/vim-go'
 "Plugin 'rking/ag.vim'
 "Plugin 'mattn/emmet-vim'
 
