@@ -94,7 +94,7 @@ ghq_selector() {
 }
 
 gtmcd() {
-  destination=$(ghq_selector)
+  destination=$(ghq list --full-path | fzf --height 30%)
   if [ -z $destination ];then
     :
   else
