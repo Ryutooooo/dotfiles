@@ -217,4 +217,4 @@ export HISTSIZE=7777
 PROMPT_COMMAND="share_history"
 
 eval "$(starship init bash)"
-cowsay -f tux $(fortune)
+# cowsay -f tux $(fortune)

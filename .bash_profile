@@ -9,7 +9,6 @@ export PATH="/usr/local/sbin:$PATH"
 export CLOUDSDK_PYTHON=python
 
 eval "$(anyenv init -)"
-eval "$(nodenv init -)"
 
 export GOPATH=$HOME/.go
 export GOPRIVATE=github.com/zeals-co-ltd/protobuf

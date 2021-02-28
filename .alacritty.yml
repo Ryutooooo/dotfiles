@@ -19,7 +19,7 @@ window:
 
   position:
     x: 620
-    y: 280
+    y: 400
 
   padding:
     x: 0
