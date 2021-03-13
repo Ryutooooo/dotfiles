@@ -28,9 +28,6 @@ nmap <S-Tab> gT
 
 set nocompatible
 
-"Plugin 'rking/ag.vim'
-"Plugin 'mattn/emmet-vim'
-
 "================================================================
 "     vim-plug config files
 "================================================================
@@ -69,6 +66,12 @@ Plug 'itchyny/lightline.vim'
 
 " golang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" ag for vim
+Plug 'rking/ag.vim'
+
+" emmet
+Plug 'mattn/emmet-vim'
 
 " lsp
 Plug 'prabirshrestha/async.vim'
