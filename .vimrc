@@ -24,7 +24,7 @@ nmap <Leader>r :source ~/.vimrc<CR>
 nmap <Leader>p :set paste!<CR>
 
 nmap <Tab> gt
-nmap <S-Tab> gT
+nmap <S-Tab> :tabnew<CR>
 
 set nocompatible
 
