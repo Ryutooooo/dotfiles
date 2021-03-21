@@ -23,7 +23,7 @@ set ignorecase
 set smartcase
 set hlsearch
 
-set wildmenu
+set wildchar
 set history=500
 
 set smartindent
