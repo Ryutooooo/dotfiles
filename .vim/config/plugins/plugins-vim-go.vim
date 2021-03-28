@@ -11,3 +11,8 @@ let g:go_fmt_command = "goimports"
 let g:go_term_mode = 'split'
 
 let g:go_template_autocreate = 0
+
+" set breakpoint with ;d
+autocmd FileType go nmap <silent> ;d :GoDebugBreakpoint<CR>
+" continue debug with ;c
+autocmd FileType go nmap <silent> ;c :GoDebugContinue<CR>
