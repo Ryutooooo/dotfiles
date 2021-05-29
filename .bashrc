@@ -17,6 +17,8 @@ alias sed='gsed'
 alias dig='dig +noedns'
 alias books='cp -r ~/Library/Mobile\ Documents/iCloud~com~apple~iBooks ~/Documents/ALLMYBOOKS'
 
+alias uconv='docker run -i --rm genzouw/uconv'
+
 #================================================================
 #			Git alias
 #================================================================
@@ -211,7 +213,7 @@ function share_history {
 shopt -u histappend
 
 export HISTCONTROL=erasedups
-export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn:pwd"
+export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn:pwd:reauth"
 export HISTSIZE=7777
 
 PROMPT_COMMAND="share_history"
