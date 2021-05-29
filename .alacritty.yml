@@ -14,8 +14,8 @@
 
 window:
   dimensions:
-    columns: 130
-    lines: 40
+    columns: 180
+    lines: 60
 
   position:
     x: 620
