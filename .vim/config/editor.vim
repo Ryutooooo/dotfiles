@@ -5,6 +5,8 @@ set background=dark
 syntax on
 colorscheme gruvbox
 
+set ambiwidth=double
+
 set number
 set t_Co=256
 set autoread
@@ -23,14 +25,14 @@ set ignorecase
 set smartcase
 set hlsearch
 
-set wildchar
+"set wildchar
 set history=500
 
 set smartindent
 
 au FileType go setlocal sw=4 ts=4 noet
 
-" ファイルの変更を移動時に読み込み
+" auto reload when moved pane
 augroup vimrc-checktime
   autocmd!
   autocmd WinEnter * checktime
