@@ -40,6 +40,14 @@ bind -x '"\C-v": "vim"'
 #			Function
 #================================================================
 
+function memo () {
+  vim --cmd 'cd ~/workspace/memo' ~/workspace/memo/`memof $1`
+}
+
+function memof () {
+  echo `date +%F``echo $1 | sed 's/^\(.\)/-\1/'`.md
+}
+
 cleanup() {
   # Homebrew part
   rm -rf ~/Library/Caches/Homebrew
