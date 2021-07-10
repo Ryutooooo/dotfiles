@@ -25,6 +25,11 @@ set ignorecase
 set smartcase
 set hlsearch
 
+" insert 4 spaces instead of \t
+set expandtab
+" 4 spaces will be generated
+set shiftwidth=4
+
 "set wildchar
 set history=500
 
