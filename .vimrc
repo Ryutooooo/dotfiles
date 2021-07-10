@@ -25,6 +25,9 @@ nmap <Leader>p :set paste!<CR>
 
 nmap <Tab> gt
 nmap <S-Tab> :tabnew<CR>
+nmap <C-g> :Rg <C-R>=expand('<cword>')<CR><CR>
+
+nmap <C-s> <Plug>MarkdownPreviewToggle
 
 set nocompatible
 
