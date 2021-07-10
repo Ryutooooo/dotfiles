@@ -39,3 +39,10 @@ augroup vimrc-checktime
 augroup END
 
 let g:python_highlight_all = 1
+
+" let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
+" set ttimeoutlen=1
+" augroup IME
+"   autocmd!
+"   autocmd InsertLeave * :call system(g:imeoff)
+" augroup END
