@@ -16,7 +16,7 @@ alias lz='lazygit'
 alias sed='gsed'
 alias dig='dig +noedns'
 alias books='cp -r ~/Library/Mobile\ Documents/iCloud~com~apple~iBooks ~/Documents/ALLMYBOOKS'
-
+alias swagger='docker run -p 80:8080 swaggerapi/swagger-editor'
 alias uconv='docker run -i --rm genzouw/uconv'
 
 #================================================================
@@ -57,6 +57,7 @@ cleanup() {
   rm -rf ~/Library/Developer/Xcode/DerivedData/ 
   # remove Xcode caches
   rm -rf ~/Library/Caches/com.apple.dt.Xcode/
+  killall Dock
 }
 
 reauth() { 
@@ -204,6 +205,7 @@ show() {
 FZF-EOF"
 }
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 #================================================================
 #     General
