@@ -18,6 +18,8 @@ export GOPRIVATE=github.com/zeals-co-ltd/protobuf
 
 export PATH="$GOPATH/bin:$PATH"
 
+export PATH=$PATH:~/.kube/plugins/jordanwilson230
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ryutooooo/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ryutooooo/google-cloud-sdk/path.bash.inc'; fi
 # The next line enables shell command completion for gcloud.

@@ -18,8 +18,8 @@ window:
     lines: 60
 
   position:
-    x: 620
-    y: 400
+    x: 570
+    y: 270
 
   padding:
     x: 0
