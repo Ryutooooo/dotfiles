@@ -36,9 +36,8 @@ Plug 'nanotech/jellybeans.vim'
 " statusline
 Plug 'itchyny/lightline.vim'
 
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
