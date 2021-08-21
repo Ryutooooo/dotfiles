@@ -10,6 +10,7 @@ do
   [ "$f" = ".gitignore" ] && continue
   [ "$f" = ".gitmodules" ] && continue
   [ "$f" = "init.vim" ] && continue
+  [ "$f" = ".alacritty.yml" ] && continue
   [ "$f" = "starship.toml" ] && continue
 
   ln -snfv `pwd`/"$f" "$HOME"/"$f"
@@ -17,3 +18,4 @@ done
 
 ln -snfv `pwd`/init.vim "$HOME"/.config/nvim/init.vim
 ln -snfv `pwd`/starship.toml "$HOME"/.config/starship.toml
+ln -snfv `pwd`/.alacritty.yml "$HOME"/.config/alacritty/.alacritty.yml
