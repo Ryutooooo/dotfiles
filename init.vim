@@ -150,6 +150,34 @@ let g:gitgutter_highlight_lines = 1
 " completion-nvim
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
+let g:vimsyn_embed='lPr'
+
+lua << EOF
+    local on_attach = function (client, bufnr)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {noremap = true, silent = true})
+        require('completion').on_attach(client)
+    end
+    require('lspconfig').vimls.setup({on_attach = on_attach})
+    require('lspconfig').tsserver.setup({on_attach = on_attach})
+    require('lspconfig').intelephense.setup({on_attach = on_attach})
+EOF
+
+" lsp
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "false"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+
+lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF
 
 "================================================================
 "     functions
