@@ -26,6 +26,12 @@ Plug 'simeji/winresizer'
 Plug 'scrooloose/nerdtree'
 
 " markdown preview
+"  #page-ctn {
+"   margin: 0 auto;
+"-  max-width: 900px;
+"+  max-width: 90%;
+"   color: var(--foreground-color);
+" }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -57,6 +63,7 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>g :GFiles<CR>
 nnoremap <Leader>c :Commands<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
+
 " turn on Terminal
 nnoremap <Leader>t :terminal<CR>
 " save file
@@ -70,12 +77,15 @@ nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>
 " turn on paste mode
 nnoremap <Leader>p :set paste!<CR>
 
+nnoremap <Leader>,s :RG<CR>
+nnoremap <Leader>,l :GBrowse<CR>
 
 nnoremap <Tab> gt
 nnoremap <S-Tab> :tabnew<CR>
-nnoremap <Leader>,s :RG<CR>
-nnoremap <Leader>,l :GBrowse<CR>
+
 nnoremap <C-g> :Rg <C-R>=expand('<cword>')<CR><CR>
+
+nnoremap <C-s> :MarkdownPreviewToggle<CR><CR>
 
 "================================================================
 "     system
