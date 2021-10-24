@@ -28,6 +28,8 @@ if [ -f '/Users/ryutooooo/google-cloud-sdk/completion.bash.inc' ]; then . '/User
 # for nand2tetris
 export PATH="$PATH:`ghq root`/`ghq list | grep nand`/tools"
 
+export PATH="$PATH:/Users/ryutooooo/Library/Android/sdk/platform-tools"
+
 if [ -f ~/.bashrc ] ; then
 . ~/.bashrc
 fi
