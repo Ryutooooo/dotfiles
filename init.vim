@@ -174,7 +174,7 @@ lua << EOF
     require('lspconfig').intelephense.setup({on_attach = on_attach})
 EOF
 
-" lsp
+" Ruby
 if executable('solargraph')
     " gem install solargraph
     au User lsp_setup call lsp#register_server({
@@ -185,8 +185,14 @@ if executable('solargraph')
         \ })
 endif
 
+" Python
 lua << EOF
 require'lspconfig'.pyright.setup{}
+EOF
+
+" Golang
+lua << EOF
+require'lspconfig'.gopls.setup{}
 EOF
 
 "================================================================
