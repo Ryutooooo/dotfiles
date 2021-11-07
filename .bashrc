@@ -64,6 +64,14 @@ reauth() {
   gcloud auth login && gcloud auth application-default login
 }
 
+revoke() {
+  echo "🚨UNSET kube context"
+  kubectl config unset current-context
+  printf '\n'
+  echo "🚨UNSET gcloud auth"
+  gcloud auth revoke
+}
+
 set_ctx() {
   for c in $(get_ctx $1); do gcloud container clusters get-credentials $c --project $1 ; done
 }
