@@ -19,6 +19,8 @@ alias dig='dig +noedns'
 alias books='cp -r ~/Library/Mobile\ Documents/iCloud~com~apple~iBooks ~/Documents/ALLMYBOOKS'
 alias swagger='docker run -p 80:8080 swaggerapi/swagger-editor'
 alias uconv='docker run -i --rm genzouw/uconv'
+alias dev="attach_dev_contaier"
+
 
 #================================================================
 #			Git alias
@@ -39,6 +41,15 @@ bind -x '"\C-v": "vim"'
 #================================================================
 #			Function
 #================================================================
+
+attach_dev_contaier() {
+  CONTAINER_ID=$(docker ps -a | grep devenv | head -1 | cut -d ' ' -f 1)
+  if [ -z $CONTAINER_ID ]; then
+    docker run -it --mount type=bind,source=$HOME/,target=/workspace devenv
+  else
+    docker start $CONTAINER_ID && docker attach $CONTAINER_ID
+  fi
+}
 
 function memo () {
   vim --cmd 'cd ~/workspace/memo' ~/workspace/memo/`memof $1`
