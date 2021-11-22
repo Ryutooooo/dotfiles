@@ -164,16 +164,16 @@ let g:vimsyn_embed='lPr'
 
 lua << EOF
 require'lspconfig'.pyright.setup{}
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.tsserver.setup{}
 local on_attach = function (client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {noremap = true, silent = true})
     require('completion').on_attach(client)
 end
-require('lspconfig').vimls.setup({on_attach = on_attach})
+require('lspconfig').gopls.setup({on_attach = on_attach})
+require('lspconfig').pyright.setup({on_attach = on_attach})
 require('lspconfig').tsserver.setup({on_attach = on_attach})
+require('lspconfig').vimls.setup({on_attach = on_attach})
 require('lspconfig').intelephense.setup({on_attach = on_attach})
 EOF
 
