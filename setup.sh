@@ -1,16 +1,24 @@
 #!/bin/bash
 
-sh ./dotfilesLink.sh
-echo "created symbolic link"
+section() {
+    echo "\n=== ${1} ===\n"
+}
 
+section "get Cica"
 curl -OL https://github.com/miiton/Cica/releases/download/v5.0.2/Cica_v5.0.2_with_emoji.zip
-echo "installed Cica"
+section"installed Cica"
 unzip Cica_v5.0.2_with_emoji.zip
-echo "unzip font files"
+section "unzip font files"
 
 sh ./install-fonts.sh
 
+section "get git-completion.bash"
+curl -OL https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+
 git clean -f 
-echo "clean up unnecessary files"
+section "clean up unnecessary files"
+
+sh ./dotfilesLink.sh
+section "created symbolic link"
 
 # $(brew --prefix)/opt/fzf/install
