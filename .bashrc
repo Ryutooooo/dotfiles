@@ -229,8 +229,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 #================================================================
 #     General
 #================================================================
-source /usr/local/etc/bash_completion.d/git-completion.bash
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f $HOME/git-completion.bash ] && source $HOME/git-completion.bash
 
 export FZF_DEFAULT_OPTS="--layout=reverse"
 
