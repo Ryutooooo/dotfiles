@@ -10,6 +10,8 @@ export PATH="~/flutter/bin:$PATH"
 
 export CLOUDSDK_PYTHON=python
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 eval "$(anyenv init -)"
 eval "$(nodenv init -)"
 
