@@ -12,3 +12,5 @@ sh ./install-fonts.sh
 
 git clean -f 
 echo "clean up unnecessary files"
+
+# $(brew --prefix)/opt/fzf/install

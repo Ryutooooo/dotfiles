@@ -1,2 +1,3 @@
 .vim/plugged
 .tmux/plugins
+.fzf.bash
