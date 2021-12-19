@@ -192,3 +192,10 @@ function! FZGrep(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call FZGrep(<q-args>, <bang>0)
+
+let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
+if !exists("autocommands_loaded")
+  let autocommands_loaded = 1
+  autocmd! InsertLeave * call system(g:imeoff)
+  autocmd! FocusGained * call system(g:imeoff)
+endif
