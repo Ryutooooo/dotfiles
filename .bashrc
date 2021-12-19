@@ -20,6 +20,7 @@ alias books='cp -r ~/Library/Mobile\ Documents/iCloud~com~apple~iBooks ~/Documen
 alias swagger='docker run -p 80:8080 swaggerapi/swagger-editor'
 alias uconv='docker run -i --rm genzouw/uconv'
 alias dev="attach_dev_contaier"
+alias gcd="ghq_cd"
 
 
 #================================================================
@@ -123,22 +124,24 @@ ghq_selector() {
   fi
 }
 
-gtmcd() {
-  destination=$(ghq list --full-path | fzf --height 30%)
+ghq_tmux() {
+  destination=$(ghq list | fzf --height 30% | cut -d '/' -f 3)
   if [ -z $destination ];then
     :
   else
-    session=$(tmux ls | grep $(echo $destination | cut -d '/' -f 6))
+    session=$(tmux ls | grep $(echo $destination))
+    # confirm session is already existing
     if [[ -z $session ]];then
-      cd $destination && tmc
+      tmux new-session -d -s $destination -c $(find $(ghq root) -depth 3 -name $destination)
+      attach_tmux $destination
     else
-      tmux a -t $(echo $destination | cut -d '/' -f 6)
+      attach_tmux $destination
     fi
   fi
 }
 
-gcd() {
-  cd $(ghq list --full-path | fzf --height 30%)
+ghq_cd() {
+  cd $(ghq_selector)
 }
 
 # tmux shortcut
@@ -148,11 +151,20 @@ tm() {
     if [ -z $session ]; then
       : #nothing
     else
-      tmux a -t $session
+      attach_tmux $session
     fi
   else
     tmux new -s $1
   fi
+}
+
+attach_tmux() {
+    _session_name=$1
+    if [[ -z $(echo $TMUX) ]];then
+      tmux a -t $_session_name
+    else
+      tmux switch-client -t $_session_name
+    fi
 }
 
 tmc() { 
