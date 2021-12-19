@@ -51,11 +51,12 @@ attach_dev_contaier() {
   fi
 }
 
-function memo () {
-  vim --cmd 'cd ~/workspace/memo' ~/workspace/memo/`memof $1`
+memo() {
+  mkdir -p ~/Library/Mobile\ Documents/com~apple~CloudDocs/memo
+  vim --cmd 'cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/' ~/Library/Mobile\ Documents/com~apple~CloudDocs/memo/`memof $1`
 }
 
-function memof () {
+memof() {
   echo `date +%F``echo $1 | sed 's/^\(.\)/-\1/'`.md
 }
 
