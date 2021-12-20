@@ -23,14 +23,14 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:~/.kube/plugins/jordanwilson230
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ryutooooo/google-cloud-sdk/path.bash.inc' ]; then . '/Users/ryutooooo/google-cloud-sdk/path.bash.inc'; fi
+if [ -f "/Users/${USER}/google-cloud-sdk/path.bash.inc" ]; then . "/Users/${USER}/google-cloud-sdk/path.bash.inc"; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/ryutooooo/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/ryutooooo/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f "/Users/${USER}/google-cloud-sdk/completion.bash.inc" ]; then . "/Users/${USER}/google-cloud-sdk/completion.bash.inc"; fi
 
 # for nand2tetris
 export PATH="$PATH:`ghq root`/`ghq list | grep nand`/tools"
 
-export PATH="$PATH:/Users/ryutooooo/Library/Android/sdk/platform-tools"
+export PATH="$PATH:/Users/${USER}/Library/Android/sdk/platform-tools"
 
 if [ -f ~/.bashrc ] ; then
 . ~/.bashrc
