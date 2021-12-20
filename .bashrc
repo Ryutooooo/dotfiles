@@ -125,14 +125,15 @@ ghq_selector() {
 }
 
 ghq_tmux() {
-  destination=$(ghq list | fzf --height 30% | cut -d '/' -f 3)
+  full_destination=$(ghq_selector)
+  destination=$(echo $full_destination | rev | cut -d '/' -f 1 | rev)
   if [ -z $destination ];then
     :
   else
-    session=$(tmux ls | grep $(echo $destination))
+    session=$(tmux ls | grep $destination)
     # confirm session is already existing
     if [[ -z $session ]];then
-      tmux new-session -d -s $destination -c $(find $(ghq root) -depth 3 -name $destination)
+      tmux new-session -d -s $destination -c $full_destination
       attach_tmux $destination
     else
       attach_tmux $destination
