@@ -16,7 +16,7 @@ eval "$(anyenv init -)"
 eval "$(nodenv init -)"
 
 export GOPATH=$HOME/.go
-export GOPRIVATE=github.com/zeals-co-ltd/protobuf
+export GOPRIVATE=github.com/zeals-co-ltd
 
 export PATH="$GOPATH/bin:$PATH"
 
