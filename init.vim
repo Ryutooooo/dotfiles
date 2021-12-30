@@ -175,6 +175,7 @@ require('lspconfig').pyright.setup({on_attach = on_attach})
 require('lspconfig').tsserver.setup({on_attach = on_attach})
 require('lspconfig').vimls.setup({on_attach = on_attach})
 require('lspconfig').intelephense.setup({on_attach = on_attach})
+require('lspconfig').dartls.setup({on_attach = on_attach})
 EOF
 
 "================================================================
