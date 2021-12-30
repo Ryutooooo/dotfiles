@@ -12,9 +12,6 @@ export CLOUDSDK_PYTHON=python
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-eval "$(anyenv init -)"
-eval "$(nodenv init -)"
-
 export GOPATH=$HOME/.go
 export GOPRIVATE=github.com/zeals-co-ltd
 
