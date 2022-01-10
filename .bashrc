@@ -263,3 +263,10 @@ PROMPT_COMMAND="share_history"
 if [ "" != $(which starship) ] ; then
   eval "$(starship init bash)"
 fi
+# for version management of Node.js 
+if [ "" != $(which fnm) ] ; then
+  eval "$(fnm env)"
+fi
+if [ -f $HOME/.carge/env ] ;then
+  "HOME/.carge/env"
+fi
