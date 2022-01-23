@@ -20,3 +20,4 @@ ln -snfv `pwd`/git-completion.bash "$HOME"/git-completion.bash
 ln -snfv `pwd`/init.vim "$HOME"/.config/nvim/init.vim
 ln -snfv `pwd`/starship.toml "$HOME"/.config/starship.toml
 ln -snfv `pwd`/.alacritty.yml "$HOME"/.config/alacritty/alacritty.yml
+ln -snfv `pwd`/vim "$HOME"/.config/nvim
