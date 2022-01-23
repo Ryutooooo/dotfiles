@@ -21,17 +21,11 @@ Plug 'vim-scripts/FuzzyFinder'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
+" resizing buffer
 Plug 'simeji/winresizer'
 
 Plug 'scrooloose/nerdtree'
 
-" markdown preview
-"  #page-ctn {
-"   margin: 0 auto;
-"-  max-width: 900px;
-"+  max-width: 90%;
-"   color: var(--foreground-color);
-" }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
