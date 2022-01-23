@@ -24,12 +24,14 @@ Plug 'simeji/winresizer'
 " previewing markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " basic neovim lsp plugin
 Plug 'neovim/nvim-lspconfig'
 
 " color scheme
 Plug 'projekt0n/github-nvim-theme'
+
+" enhancing syntax hightlight
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " showing git status on vim inline
 Plug 'airblade/vim-gitgutter'
@@ -57,6 +59,7 @@ call plug#end()
 " Load other config files
 runtime vim/ddc.vim
 runtime vim/lsp.lua
+runtime vim/treesitter.lua
 runtime vim/keymap.vim
 runtime vim/colorscheme.lua
 runtime vim/statusline.lua
