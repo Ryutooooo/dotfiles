@@ -41,9 +41,24 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
+" for completion
+Plug 'Shougo/ddc.vim'
+" for ddc, sources
+Plug 'Shougo/ddc-around'
+" for ddc, filters
+Plug 'Shougo/ddc-matcher_head'
+Plug 'Shougo/ddc-sorter_rank'
+" for ddc & lsp
+Plug 'Shougo/ddc-nvim-lsp'
+
+" for Deno
+Plug 'vim-denops/denops.vim'
+Plug 'vim-denops/denops-helloworld.vim'
+
 call plug#end()
 
 " Load other config files
+runtime vim/ddc.vim
 runtime vim/keymap.vim
 runtime vim/colorscheme.lua
 runtime vim/statusline.lua
@@ -113,11 +128,6 @@ let NERDTreeShowHidden=1
 
 " vim-gitgutter
 let g:gitgutter_highlight_lines = 1
-
-" completion-nvim
-set completeopt=menuone,noinsert,noselect
-set shortmess+=c
-let g:vimsyn_embed='lPr'
 
 lua << EOF
 require'lspconfig'.pyright.setup{}
