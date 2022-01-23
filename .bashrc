@@ -246,7 +246,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 [ -f $HOME/git-completion.bash ] && source $HOME/git-completion.bash
 [ -f $HOME/.fzf.bash ] && source $HOME/.fzf.bash
 
-export FZF_DEFAULT_OPTS="--layout=reverse"
+export FZF_DEFAULT_OPTS="--layout=reverse --bind change:top"
 
 function share_history {
     history -a
