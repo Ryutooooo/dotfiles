@@ -115,8 +115,9 @@ kc() {
   fi
 }
 
+# show list of qhq with fzf, return full repo path after selected.
 ghq_selector() {
-  destination=$(ghq list | fzf --height 30%)
+  destination=$(ghq list | fzf --height 35%)
   if [ -z $destination ]; then
     : # nothing
   else
