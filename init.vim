@@ -27,11 +27,12 @@ Plug 'simeji/winresizer'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" basic neovim lsp plugin
+Plug 'neovim/nvim-lspconfig'
 
 " color scheme
 
 Plug 'projekt0n/github-nvim-theme'
-Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
 Plug 'airblade/vim-gitgutter'
@@ -56,6 +57,7 @@ call plug#end()
 
 " Load other config files
 runtime vim/ddc.vim
+runtime vim/lsp.lua
 runtime vim/keymap.vim
 runtime vim/colorscheme.lua
 runtime vim/statusline.lua
@@ -123,22 +125,6 @@ set laststatus=2
 
 " vim-gitgutter
 let g:gitgutter_highlight_lines = 1
-
-lua << EOF
-require'lspconfig'.pyright.setup{}
-local on_attach = function (client, bufnr)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', {noremap = true, silent = true})
-    require('completion').on_attach(client)
-end
-require('lspconfig').gopls.setup({on_attach = on_attach})
-require('lspconfig').pyright.setup({on_attach = on_attach})
-require('lspconfig').tsserver.setup({on_attach = on_attach})
-require('lspconfig').vimls.setup({on_attach = on_attach})
-require('lspconfig').intelephense.setup({on_attach = on_attach})
-require('lspconfig').dartls.setup({on_attach = on_attach})
-EOF
 
 "================================================================
 "     functions
