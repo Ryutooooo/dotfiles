@@ -1,7 +1,6 @@
 "================================================================
 "     vim-plug config files
 "================================================================
-
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -12,11 +11,9 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-
 call plug#begin()
 
 Plug 'vim-scripts/L9'
-
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -24,19 +21,21 @@ Plug 'junegunn/fzf.vim'
 " resizing buffer
 Plug 'simeji/winresizer'
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" previewing markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " basic neovim lsp plugin
 Plug 'neovim/nvim-lspconfig'
 
 " color scheme
-
 Plug 'projekt0n/github-nvim-theme'
-Plug 'nvim-lua/completion-nvim'
 
+" showing git status on vim inline
 Plug 'airblade/vim-gitgutter'
+" extend vim with Git
 Plug 'tpope/vim-fugitive'
+" for extention of GBrowse in vim-fugitive
 Plug 'tpope/vim-rhubarb'
 
 " for completion
