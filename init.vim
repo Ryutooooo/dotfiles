@@ -30,9 +30,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " color scheme
 
-" statusline
-Plug 'itchyny/lightline.vim'
-
 Plug 'projekt0n/github-nvim-theme'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
@@ -121,13 +118,8 @@ augroup END
 "================================================================
 "     vim-plug config files
 "================================================================
-
 " lightline
 set laststatus=2
-
-" NERDTree config
-" default preview hidden file
-let NERDTreeShowHidden=1
 
 " vim-gitgutter
 let g:gitgutter_highlight_lines = 1
