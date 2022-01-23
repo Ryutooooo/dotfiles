@@ -24,8 +24,6 @@ Plug 'junegunn/fzf.vim'
 " resizing buffer
 Plug 'simeji/winresizer'
 
-Plug 'scrooloose/nerdtree'
-
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -56,7 +54,6 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>g :GFiles<CR>
 nnoremap <Leader>c :Commands<CR>
-nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " turn on Terminal
 nnoremap <Leader>t :terminal<CR>
