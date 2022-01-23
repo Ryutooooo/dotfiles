@@ -99,6 +99,9 @@ set ignorecase
 set smartcase
 set hlsearch
 
+" make replacing visualize
+set inccommand=split
+
 " insert 4 spaces instead of \t
 set expandtab
 " 4 spaces will be generated
