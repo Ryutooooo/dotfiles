@@ -29,11 +29,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " color scheme
-Plug 'nanotech/jellybeans.vim'
 
 " statusline
 Plug 'itchyny/lightline.vim'
 
+Plug 'projekt0n/github-nvim-theme'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
@@ -77,6 +77,9 @@ nnoremap <S-Tab> :tabnew<CR>
 nnoremap <C-g> :Rg <C-R>=expand('<cword>')<CR><CR>
 
 nnoremap <C-s> :MarkdownPreviewToggle<CR><CR>
+" Load other config files
+runtime vim/colorscheme.lua
+runtime vim/statusline.lua
 
 "================================================================
 "     system
@@ -96,8 +99,6 @@ set noswapfile
 "================================================================
 "     editor
 "================================================================
-
-colorscheme jellybeans
 
 set number
 set t_Co=256
@@ -138,8 +139,6 @@ augroup END
 
 " lightline
 set laststatus=2
-let g:lightline = {'component': {'filename': '%f'}}
-let g:lightline.colorscheme = 'jellybeans'
 
 " NERDTree config
 " default preview hidden file
