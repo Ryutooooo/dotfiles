@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  hightlight = {
+  highlight = {
     enable = true,
   },
   indent = {
