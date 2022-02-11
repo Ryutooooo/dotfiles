@@ -27,7 +27,6 @@ window:
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
-  decorations: transparent
 
   # Startup Mode (changes require restart)
   #
@@ -38,6 +37,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
+  decorations: buttonless
   startup_mode: Windowed
 
   # Window title
