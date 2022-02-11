@@ -28,7 +28,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'neovim/nvim-lspconfig'
 
 " color scheme
-Plug 'projekt0n/github-nvim-theme'
+Plug 'bluz71/vim-moonfly-colors'
 
 " enhancing syntax hightlight
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
