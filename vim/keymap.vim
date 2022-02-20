@@ -6,7 +6,7 @@ nnoremap <ESC><ESC> :noh<CR>
 
 let mapleader = "\<Space>"
 nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>f <Cmd>call ddu#start({})<CR>
 nnoremap <Leader>g :GFiles<CR>
 nnoremap <Leader>c :Commands<CR>
 
