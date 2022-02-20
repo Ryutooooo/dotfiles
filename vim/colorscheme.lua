@@ -1,19 +1,23 @@
+require("nebulous").setup {
+  variant = "midnight",
+  disable = {
+    background = true,
+    endOfBuffer = false,
+    terminal_colors = false,
+  },
+  italic = {
+    comments   = false,
+    keywords   = true,
+    functions  = false,
+    variables  = true,
+  },
+  custom_colors = { -- this table can hold any group of colors with their respective values
+    LineNr = { fg = "#5BBBDA", bg = "NONE", style = "NONE" },
+    CursorLineNr = { fg = "#E1CD6C", bg = "NONE", style = "NONE" },
 
-vim.cmd [[colorscheme moonfly]]
-
--- require("github-theme").setup({
---   theme_style = "dark_default",
---   function_style = "italic",
---   sidebars = {"qf", "vista_kind", "terminal", "packer"},
---   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
---   colors = {hint = "orange", error = "#ff0000"},
---   -- Overwrite the highlight groups
---   overrides = function(c)
---     return {
---       htmlTag = {fg = c.red, bg = "#282c34", sp = c.hint, style = "underline"},
---       DiagnosticHint = {link = "LspDiagnosticsDefaultHint"},
---       -- this will remove the highlight groups
---       TSField = {},
---     }
---   end
--- })
+    -- it is possible to specify only the element to be changed
+    TelescopePreviewBorder = { fg = "#A13413" },
+    LspDiagnosticsDefaultError = { bg = "#E11313" },
+    TSTagDelimiter = { style = "bold,italic" },
+  }
+}
