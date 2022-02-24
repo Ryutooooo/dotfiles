@@ -78,6 +78,7 @@ reauth() {
 
 revoke() {
   echo "🚨UNSET kube context"
+  kubectl config unset contexts.$(kubectl config current-context).namespace
   kubectl config unset current-context
   printf '\n'
   echo "🚨UNSET gcloud auth"
