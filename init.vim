@@ -69,6 +69,7 @@ runtime vim/ddu.vim
 runtime vim/lsp.lua
 runtime vim/treesitter.lua
 runtime vim/keymap.vim
+runtime vim/go.vim
 runtime vim/colorscheme.lua
 runtime vim/statusline.lua
 
