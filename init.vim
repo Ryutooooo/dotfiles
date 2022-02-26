@@ -64,8 +64,14 @@ Plug 'vim-denops/denops-helloworld.vim'
 call plug#end()
 
 " Load other config files
-runtime! vim/*.vim
-runtime! vim/*.lua
+runtime vim/ddc.vim
+runtime vim/ddu.vim
+runtime vim/lsp.lua
+runtime vim/treesitter.lua
+runtime vim/keymap.vim
+runtime vim/go.vim
+runtime vim/colorscheme.lua
+runtime vim/statusline.lua
 
 "================================================================
 "     system
