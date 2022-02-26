@@ -72,7 +72,7 @@ runtime! vim/*.lua
 "================================================================
 
 set langmenu=en_US.UTF-8
-language messages en_US.UTF-8
+lan mes C
 
 set fileencoding=utf-8
 set fileencodings=ucs-boms,utf-8,euc-jp,cp932
@@ -87,7 +87,6 @@ set noswapfile
 "================================================================
 
 set number
-set t_Co=256
 
 set backspace=indent,eol,start
 
@@ -121,15 +120,6 @@ augroup vimrc-checktime
   autocmd!
   autocmd WinEnter * checktime
 augroup END
-
-"================================================================
-"     vim-plug config files
-"================================================================
-" lightline
-set laststatus=2
-
-" vim-gitgutter
-let g:gitgutter_highlight_lines = 1
 
 "================================================================
 "     functions
