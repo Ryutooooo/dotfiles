@@ -60,7 +60,6 @@ function! s:ddu_my_settings() abort
         \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
 endfunction
 
-
 autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
 function! s:ddu_filter_my_settings() abort
   inoremap <buffer><silent> <CR>
