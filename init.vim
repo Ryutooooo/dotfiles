@@ -63,31 +63,6 @@ Plug 'vim-denops/denops-helloworld.vim'
 
 call plug#end()
 
-" Load other config files
-runtime vim/ddc.vim
-runtime vim/ddu.vim
-runtime vim/lsp.lua
-runtime vim/treesitter.lua
-runtime vim/keymap.vim
-runtime vim/go.vim
-runtime vim/colorscheme.lua
-runtime vim/statusline.lua
-
-"================================================================
-"     system
-"================================================================
-
-set langmenu=en_US.UTF-8
-lan mes C
-
-set fileencoding=utf-8
-set fileencodings=ucs-boms,utf-8,euc-jp,cp932
-set fileformats=unix,dos,mac
-
-" no backup no swap
-set nobackup
-set noswapfile
-
 "================================================================
 "     editor
 "================================================================
@@ -126,6 +101,25 @@ augroup vimrc-checktime
   autocmd!
   autocmd WinEnter * checktime
 augroup END
+
+" Load other config files
+runtime vim/ddc.vim
+runtime vim/ddu.vim
+runtime vim/lsp.lua
+runtime vim/treesitter.lua
+runtime vim/keymap.vim
+runtime vim/go.vim
+runtime vim/colorscheme.lua
+runtime vim/statusline.lua
+
+"================================================================
+"     system
+"================================================================
+lan mes C
+
+set nobackup
+set noswapfile
+set noundofile
 
 "================================================================
 "     functions
