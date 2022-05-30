@@ -12,7 +12,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin()
-
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/FuzzyFinder'
 Plug 'junegunn/fzf'
@@ -42,12 +41,9 @@ Plug 'tpope/vim-rhubarb'
 
 " for completion
 Plug 'Shougo/ddc.vim'
-" for ddc, sources
 Plug 'Shougo/ddc-around'
-" for ddc, filters
 Plug 'Shougo/ddc-matcher_head'
 Plug 'Shougo/ddc-sorter_rank'
-" for ddc & lsp
 Plug 'Shougo/ddc-nvim-lsp'
 
 " for ddu
@@ -86,10 +82,10 @@ set hlsearch
 " make replacing visualize
 set inccommand=split
 
-" insert 4 spaces instead of \t
+" insert 2 spaces instead of \t
 set expandtab
-" 4 spaces will be generated
-set shiftwidth=4
+" 2 spaces will be generated
+set shiftwidth=2
 
 "set wildchar
 set history=500
