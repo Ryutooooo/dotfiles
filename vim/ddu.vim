@@ -1,5 +1,3 @@
-" Note: ff ui
-" https://github.com/Shougo/ddu-ui-ff
 call ddu#custom#patch_global({
     \ 'ui': 'ff',
     \   'uiParams': {
@@ -19,24 +17,28 @@ call ddu#custom#patch_global({
     \   },
     \ })
 
-" NOTE: matcher_substring filter
-" https://github.com/Shougo/ddu-filter-matcher_substring
+call ddu#custom#patch_global({
+    \ 'sources': [{'name': 'file_rec', 'params': {}}],
+    \ })
+
 call ddu#custom#patch_global({
     \   'sourceOptions': {
     \     '_': {
+    \       'ignoreCase': v:true,
     \       'matchers': ['matcher_substring'],
     \     },
     \   }
     \ })
 
-" NOTE: source
-" https://github.com/Shougo/ddu-source-file_rec
 call ddu#custom#patch_global({
-    \ 'sources': [{'name': 'file_rec', 'params': {}}],
+    \   'filterParams': {
+    \     'matcher_substring': {
+    \       'highlightMatched': 'Search',
+    \     },
+    \   }
     \ })
 
-" NOTE: file kind
-" https://github.com/Shougo/ddu-kind-file
+
 call ddu#custom#patch_global({
     \   'kindOptions': {
     \     'file': {
@@ -45,6 +47,7 @@ call ddu#custom#patch_global({
     \   }
     \ })
 
+
 autocmd FileType ddu-ff call s:ddu_my_settings()
 function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> <CR>
@@ -52,6 +55,9 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> v
         \ <Cmd>call ddu#ui#ff#do_action('itemAction',
         \ {'name': 'open', 'params': {'command': 'vsplit'}})<CR>
+  nnoremap <buffer><silent> x
+        \ <Cmd>call ddu#ui#ff#do_action('itemAction',
+        \ {'name': 'open', 'params': {'command': 'split'}})<CR>
   nnoremap <buffer><silent> i
         \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
   nnoremap <buffer><silent> p

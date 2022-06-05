@@ -32,13 +32,6 @@ Plug 'Yagua/nebulous.nvim'
 " enhancing syntax hightlight
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" showing git status on vim inline
-Plug 'airblade/vim-gitgutter'
-" extend vim with Git
-Plug 'tpope/vim-fugitive'
-" for extention of GBrowse in vim-fugitive
-Plug 'tpope/vim-rhubarb'
-
 " for completion
 Plug 'Shougo/ddc.vim'
 Plug 'Shougo/ddc-around'

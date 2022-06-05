@@ -8,4 +8,4 @@
 -- %=                                             left/right separator
 -- %l/%L,%c                                       rownumber/total,colnumber
 -- %{&fileencoding?&fileencoding:&encoding}       file encoding
-vim.opt.statusline = "  %< %{fugitive#head()}  %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
+vim.opt.statusline = "  %< %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
