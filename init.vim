@@ -21,7 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'simeji/winresizer'
 
 " previewing markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'kat0h/bufpreview.vim'
 
 " basic neovim lsp plugin
 Plug 'neovim/nvim-lspconfig'
