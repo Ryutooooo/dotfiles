@@ -43,8 +43,11 @@ Plug 'Shougo/ddc-nvim-lsp'
 Plug 'Shougo/ddu.vim'
 Plug 'Shougo/ddu-ui-ff'
 Plug 'Shougo/ddu-source-file_rec'
+Plug 'Shougo/ddu-source-action'
 Plug 'Shougo/ddu-filter-matcher_substring'
 Plug 'Shougo/ddu-kind-file'
+Plug 'shun/ddu-source-buffer'
+Plug 'shun/ddu-source-rg'
 
 " for Deno
 Plug 'vim-denops/denops.vim'
