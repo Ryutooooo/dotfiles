@@ -5,10 +5,23 @@
 nnoremap <ESC><ESC> :noh<CR>
 
 let mapleader = "\<Space>"
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>f <Cmd>call ddu#start({})<CR>
-nnoremap <Leader>g :GFiles<CR>
+" nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f <Cmd>call ddu#start({'source': [{'name':'file_rec'}]})<CR>
+nnoremap <Leader>b <Cmd>call ddu#start({
+    \  'sources': [{'name': 'buffer'}],
+    \  'uiParams': {
+    \    'ff': { 'startFilter': v:false, }
+    \  },
+    \  })<CR>
 nnoremap <Leader>c :Commands<CR>
+" nnoremap <Leader>c <Cmd>call ddu#start({
+"     \  'sources': [{'name': 'actions'}],
+"     \  'kindOptions': {
+"     \    'action': {
+"     \      'defaultAction': 'do',
+"     \    },
+"     \  },
+"     \  })<CR>
 
 " turn on Terminal
 nnoremap <Leader>t :terminal<CR>
@@ -31,4 +44,12 @@ nnoremap <Leader>,l :GBrowse<CR>
 nnoremap <Tab> gt
 nnoremap <S-Tab> :tabnew<CR>
 
-nnoremap <C-g> :Rg <C-R>=expand('<cword>')<CR><CR>
+nnoremap <C-g> <Cmd>call ddu#start({
+    \  'name': 'grep',
+    \  'sources':[
+    \    {'name': 'rg', 'params': {'input': expand('<cword>')}}
+    \  ],
+    \  'uiParams': {
+    \    'ff': { 'startFilter': v:false, }
+    \  },
+    \  })<CR>

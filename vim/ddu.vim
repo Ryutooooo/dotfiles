@@ -1,51 +1,66 @@
 call ddu#custom#patch_global({
-    \ 'ui': 'ff',
-    \   'uiParams': {
-    \     'ff': {
-    \       'filterFloatingPosition': 'top',
-    \       'filterSplitDirection': 'floating',
-    \       'split': 'floating',
-    \       'previewFloating': v:true,
-    \       'previewVertical': v:true,
-    \       'previewHeight': &lines / 8 * 6,
-    \       'previewWidth': &columns / 8 * 3,
-    \       'winHeight': &lines / 8 * 6,
-    \       'winWidth': &columns / 8 * 6 / 2,
-    \       'winRow': &lines / 8,
-    \       'winCol': &columns / 8,
-    \     },
-    \   },
-    \ })
-
-call ddu#custom#patch_global({
-    \ 'sources': [{'name': 'file_rec', 'params': {}}],
-    \ })
-
-call ddu#custom#patch_global({
-    \   'sourceOptions': {
-    \     '_': {
-    \       'ignoreCase': v:true,
-    \       'matchers': ['matcher_substring'],
-    \     },
-    \   }
-    \ })
-
-call ddu#custom#patch_global({
-    \   'filterParams': {
-    \     'matcher_substring': {
-    \       'highlightMatched': 'Search',
-    \     },
-    \   }
-    \ })
-
-
-call ddu#custom#patch_global({
-    \   'kindOptions': {
-    \     'file': {
-    \       'defaultAction': 'open',
-    \     },
-    \   }
-    \ })
+    \  'profile': v:true,
+    \  'ui': 'ff',
+    \  'uiParams': {
+    \    'ff': {
+    \      'autoResize': v:false,
+    \      'filterFloatingPosition': 'top',
+    \      'filterSplitDirection': 'floating',
+    \      'floatingBorder': 'single',
+    \      'startFilter': v:true,
+    \      'split': 'floating',
+    \      'previewFloating': v:true,
+    \      'previewFloatingBorder': 'single',
+    \      'previewVertical': v:true,
+    \      'previewHeight': &lines / 8 * 7,
+    \      'previewWidth': &columns / 8 * 4,
+    \      'prompt': '> ',
+    \      'winHeight': &lines / 8 * 7,
+    \      'winWidth': &columns / 8 * 6 / 2,
+    \      'winRow': &lines / 10,
+    \      'winCol': &columns / 12,
+    \    },
+    \  },
+    \  'sources': [
+    \    {
+    \      'name': 'file_rec',
+    \      'params': {'ignoredDirectories': ['.git', 'node_modules']}
+    \    },
+    \    {
+    \      'name': 'buffer'
+    \    },
+    \    {
+    \      'name': 'rg'
+    \    },
+    \  ],
+    \  'sourceParams': {
+    \    'rg' : {
+    \      'args': ['--column', '--no-heading', '--color', 'never', '--json'],
+    \    },
+    \    'file_rg': {
+    \      'cmd': ['rg', '--files', '--glob', '!.git', '--color', 'never', '--no-messages'],
+    \    },
+    \  },
+    \  'sourceOptions': {
+    \    '_': {
+    \      'ignoreCase': v:true,
+    \      'matchers': ['matcher_substring'],
+    \    },
+    \  },
+    \  'kindOptions': {
+    \    'file': {
+    \      'defaultAction': 'open',
+    \    },
+    \    'action': {
+    \      'defaultAction': 'do',
+    \    },
+    \  },
+    \  'filterParams': {
+    \    'matcher_substring': {
+    \      'highlightMatched': 'Search',
+    \    },
+    \  },
+    \  })
 
 
 autocmd FileType ddu-ff call s:ddu_my_settings()
