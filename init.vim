@@ -17,6 +17,9 @@ Plug 'vim-scripts/FuzzyFinder'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
+" Git blame
+Plug 'f-person/git-blame.nvim'
+
 " resizing buffer
 Plug 'simeji/winresizer'
 
