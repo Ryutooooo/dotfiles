@@ -33,8 +33,6 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>a :qa<CR>
 " reload vimrc
 nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>
-" turn on paste mode
-nnoremap <Leader>p :set paste!<CR>
 
 nnoremap <Leader>s :MarkdownPreviewToggle<CR>
 
