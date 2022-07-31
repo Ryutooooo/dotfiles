@@ -24,7 +24,7 @@ Plug 'f-person/git-blame.nvim'
 Plug 'simeji/winresizer'
 
 " previewing markdown
-Plug 'kat0h/bufpreview.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " basic neovim lsp plugin
 Plug 'neovim/nvim-lspconfig'
@@ -86,7 +86,7 @@ set expandtab
 " 2 spaces will be generated
 set shiftwidth=2
 
-"set wildchar
+" set wildchar
 set history=500
 
 set smartindent
