@@ -91,6 +91,9 @@ set history=500
 
 set smartindent
 
+" hidden cmdline
+set cmdheight=0
+
 " auto reload when moved pane
 augroup vimrc-checktime
   autocmd!
