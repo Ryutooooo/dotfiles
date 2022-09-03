@@ -24,6 +24,8 @@ if [ -f "/Users/${USER}/google-cloud-sdk/path.bash.inc" ]; then . "/Users/${USER
 # The next line enables shell command completion for gcloud.
 if [ -f "/Users/${USER}/google-cloud-sdk/completion.bash.inc" ]; then . "/Users/${USER}/google-cloud-sdk/completion.bash.inc"; fi
 
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
 # for nand2tetris
 export PATH="$PATH:`ghq root`/`ghq list | grep nand`/tools"
 
