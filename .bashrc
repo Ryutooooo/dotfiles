@@ -21,6 +21,7 @@ alias swagger='docker run -p 80:8080 swaggerapi/swagger-editor'
 alias uconv='docker run -i --rm genzouw/uconv'
 alias dev="attach_dev_contaier"
 alias gcd="ghq_cd"
+alias python="python3"
 
 
 #================================================================
@@ -86,7 +87,7 @@ revoke() {
 }
 
 set_ctx() {
-  for c in $(get_ctx $1); do gcloud container clusters get-credentials $c --project $1 ; done
+  for c in $(get_ctx $1); do gcloud container clusters get-credentials $c --project $1 --zone $2 ; done
 }
 
 get_ctx() {
