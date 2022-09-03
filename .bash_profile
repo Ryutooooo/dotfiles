@@ -8,7 +8,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 export PATH="~/flutter/bin:$PATH"
 
-export CLOUDSDK_PYTHON=python
+export CLOUDSDK_PYTHON=python3
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
