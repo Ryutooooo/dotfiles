@@ -36,6 +36,8 @@ nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>
 
 nnoremap <Leader>s :MarkdownPreviewToggle<CR>
 
+nnoremap <Leader>g :GitBlameToggle<CR>
+
 nnoremap <Leader>,s :RG<CR>
 nnoremap <Leader>,l :GBrowse<CR>
 

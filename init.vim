@@ -20,6 +20,8 @@ Plug 'junegunn/fzf.vim'
 " Git blame
 Plug 'f-person/git-blame.nvim'
 
+let g:gitblame_enabled = 0
+
 " resizing buffer
 Plug 'simeji/winresizer'
 
