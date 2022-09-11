@@ -44,6 +44,8 @@ Plug 'Shougo/ddc-matcher_head'
 Plug 'Shougo/ddc-sorter_rank'
 Plug 'Shougo/ddc-nvim-lsp'
 
+Plug 'Shougo/pum.vim'
+
 " for ddu
 Plug 'Shougo/ddu.vim'
 Plug 'Shougo/ddu-ui-ff'
@@ -111,6 +113,7 @@ runtime vim/keymap.vim
 runtime vim/go.vim
 runtime vim/colorscheme.lua
 runtime vim/statusline.lua
+runtime vim/pum.vim
 
 "================================================================
 "     system
