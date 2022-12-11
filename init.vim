@@ -25,8 +25,9 @@ let g:gitblame_enabled = 0
 " resizing buffer
 Plug 'simeji/winresizer'
 
-" previewing markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+" preview markdown
+Plug 'previm/previm'
+let g:previm_open_cmd = 'open -a Google\ Chrome'
 
 " basic neovim lsp plugin
 Plug 'neovim/nvim-lspconfig'

@@ -34,7 +34,7 @@ nnoremap <Leader>a :qa<CR>
 " reload vimrc
 nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>
 
-nnoremap <Leader>s :MarkdownPreviewToggle<CR>
+nnoremap <Leader>s :PrevimOpen<CR>
 
 nnoremap <Leader>g :GitBlameToggle<CR>
 
