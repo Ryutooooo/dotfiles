@@ -44,6 +44,7 @@ Plug 'Shougo/ddc-around'
 Plug 'Shougo/ddc-matcher_head'
 Plug 'Shougo/ddc-sorter_rank'
 Plug 'Shougo/ddc-nvim-lsp'
+Plug 'Shougo/ddc-ui-pum'
 
 Plug 'Shougo/pum.vim'
 
@@ -118,6 +119,9 @@ runtime vim/go.vim
 runtime vim/colorscheme.lua
 runtime vim/statusline.lua
 runtime vim/pum.vim
+
+autocmd BufNewFile,BufRead *.dig set filetype=yaml
+autocmd Syntax yaml setl indentkeys-=<:>
 
 "================================================================
 "     system

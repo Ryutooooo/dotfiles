@@ -5,15 +5,25 @@
 nnoremap <ESC><ESC> :noh<CR>
 
 let mapleader = "\<Space>"
-" nnoremap <Leader>b :Buffers<CR>
+" All file
 nnoremap <Leader>f <Cmd>call ddu#start({'source': [{'name':'file_rec'}]})<CR>
+" Buffer
 nnoremap <Leader>b <Cmd>call ddu#start({
     \  'sources': [{'name': 'buffer'}],
     \  'uiParams': {
     \    'ff': { 'startFilter': v:false, }
     \  },
     \  })<CR>
-nnoremap <Leader>c :Commands<CR>
+" Search from file by string under cursor
+nnoremap <C-g> <Cmd>call ddu#start({
+    \  'volatile': v:true,
+    \  'sources':[
+    \    {'name': 'rg', 'params': {'input': expand('<cword>')}}
+    \  ],
+    \  'uiParams': {
+    \    'ff': { 'startFilter': v:false, }
+    \  },
+    \  })<CR>
 " nnoremap <Leader>c <Cmd>call ddu#start({
 "     \  'sources': [{'name': 'actions'}],
 "     \  'kindOptions': {
@@ -38,6 +48,9 @@ nnoremap <Leader>n <Cmd>call ddu#start({
     \    },
     \  }
     \  })<CR>
+
+nnoremap <Leader>c :Commands<CR>
+
 " turn on Terminal
 nnoremap <Leader>t :terminal<CR>
 " save file
@@ -53,18 +66,8 @@ nnoremap <Leader>s :PrevimOpen<CR>
 
 nnoremap <Leader>g :GitBlameToggle<CR>
 
-nnoremap <Leader>,s :RG<CR>
-nnoremap <Leader>,l :GBrowse<CR>
-
 nnoremap <Tab> gt
 nnoremap <S-Tab> :tabnew<CR>
 
-nnoremap <C-g> <Cmd>call ddu#start({
-    \  'name': 'grep',
-    \  'sources':[
-    \    {'name': 'rg', 'params': {'input': expand('<cword>')}}
-    \  ],
-    \  'uiParams': {
-    \    'ff': { 'startFilter': v:false, }
-    \  },
-    \  })<CR>
+" tmp
+nnoremap <Leader>,s :RG<CR>

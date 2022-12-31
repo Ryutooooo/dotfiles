@@ -1,5 +1,5 @@
 call ddc#custom#patch_global('completionMenu', 'pum.vim')
-call ddc#custom#patch_global('sources', ['around', 'clangd', 'nvim-lsp'])
+call ddc#custom#patch_global('sources', ['around', 'nvim-lsp'])
 call ddc#custom#patch_global('sourceOptions', {
       \ '_': {
       \   'matchers': ['matcher_head'],
@@ -12,6 +12,8 @@ call ddc#custom#patch_global('sourceOptions', {
 call ddc#custom#patch_global('sourceParams', {
       \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
       \ })
+
+call ddc#custom#patch_global('ui', 'pum')
 
 " Init ddc.
 call ddc#enable()
