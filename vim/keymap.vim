@@ -23,6 +23,21 @@ nnoremap <Leader>c :Commands<CR>
 "     \  },
 "     \  })<CR>
 
+" Filer
+nnoremap <Leader>n <Cmd>call ddu#start({
+    \  'ui': 'filer',
+    \  'sources': [{'name': 'file', 'params': {}}],
+    \  'sourceOptions': {
+    \    '_': {
+    \      'columns': ['filename'],
+    \    },
+    \  },
+    \  'kindOptions': {
+    \    'file': {
+    \      'defaultAction': 'open',
+    \    },
+    \  }
+    \  })<CR>
 " turn on Terminal
 nnoremap <Leader>t :terminal<CR>
 " save file

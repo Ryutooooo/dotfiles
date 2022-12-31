@@ -21,6 +21,11 @@ call ddu#custom#patch_global({
     \      'winRow': &lines / 10,
     \      'winCol': &columns / 12,
     \    },
+    \    'filer': {
+    \      'split': 'vertical',
+    \      'splitDirection': 'topleft',
+    \      'winWidth': &columns / 10,
+    \    },
     \  },
     \  'sources': [
     \    {
@@ -90,4 +95,17 @@ function! s:ddu_filter_my_settings() abort
   \ <Cmd>close<CR>
   nnoremap <buffer><silent> q
   \ <Cmd>close<CR>
+endfunction
+
+autocmd FileType ddu-filer call s:ddu_filer_settings()
+function! s:ddu_filer_settings() abort
+  nnoremap <buffer><silent> <CR>
+        \ <Cmd>call ddu#ui#filer#do_action('itemAction')<CR>
+  nnoremap <buffer><silent> <Space>
+        \ <Cmd>call ddu#ui#filer#do_action('toggleSelectItem')<CR>
+  nnoremap <buffer> l
+        \ <Cmd>call ddu#ui#filer#do_action('expandItem',
+        \ {'mode': 'toggle'})<CR>
+  nnoremap <buffer><silent> q
+        \ <Cmd>call ddu#ui#filer#do_action('quit')<CR>
 endfunction

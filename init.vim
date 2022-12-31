@@ -49,7 +49,10 @@ Plug 'Shougo/pum.vim'
 
 " for ddu
 Plug 'Shougo/ddu.vim'
+Plug 'Shougo/ddu-column-filename'
 Plug 'Shougo/ddu-ui-ff'
+Plug 'Shougo/ddu-ui-filer'
+Plug 'Shougo/ddu-source-file'
 Plug 'Shougo/ddu-source-file_rec'
 Plug 'Shougo/ddu-source-action'
 Plug 'Shougo/ddu-filter-matcher_substring'
