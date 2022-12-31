@@ -3,6 +3,7 @@ call ddu#custom#patch_global({
     \  'ui': 'ff',
     \  'uiParams': {
     \    'ff': {
+    \      'autoAction': {'name': 'preview'},
     \      'autoResize': v:false,
     \      'filterFloatingPosition': 'top',
     \      'filterSplitDirection': 'floating',
