@@ -5,17 +5,17 @@ call ddu#custom#patch_global({
     \    'ff': {
     \      'autoAction': {'name': 'preview'},
     \      'autoResize': v:false,
+    \      'floatingBorder': 'single',
     \      'filterFloatingPosition': 'top',
     \      'filterSplitDirection': 'floating',
-    \      'floatingBorder': 'single',
-    \      'startFilter': v:true,
-    \      'split': 'floating',
     \      'previewFloating': v:true,
     \      'previewFloatingBorder': 'single',
     \      'previewVertical': v:true,
     \      'previewHeight': &lines / 8 * 7,
     \      'previewWidth': &columns / 8 * 4,
     \      'prompt': '> ',
+    \      'startFilter': v:true,
+    \      'split': 'floating',
     \      'winHeight': &lines / 8 * 7,
     \      'winWidth': &columns / 8 * 6 / 2,
     \      'winRow': &lines / 10,
@@ -32,16 +32,10 @@ call ddu#custom#patch_global({
     \      'name': 'file_rec',
     \      'params': {'ignoredDirectories': ['.git', 'node_modules']}
     \    },
-    \    {
-    \      'name': 'buffer'
-    \    },
-    \    {
-    \      'name': 'rg'
-    \    },
     \  ],
     \  'sourceParams': {
     \    'rg' : {
-    \      'args': ['--column', '--no-heading', '--color', 'never', '--json'],
+    \      'args': ['--column', '--no-heading', '--color', 'never'],
     \    },
     \    'file_rg': {
     \      'cmd': ['rg', '--files', '--glob', '!.git', '--color', 'never', '--no-messages'],
