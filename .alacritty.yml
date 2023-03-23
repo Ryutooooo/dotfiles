@@ -54,8 +54,6 @@ font:
     x: 0
     y: 0
 
-  use_thin_strokes: true
-
 draw_bold_text_with_bright_colors: true
 
 window.opacity: 1.0
@@ -154,7 +152,7 @@ colors:
 
 # Shell
 shell:
-  program: /bin/bash
+  program: /opt/homebrew/bin/bash
   args:
     - --login
 
