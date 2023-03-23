@@ -8,7 +8,10 @@ let mapleader = "\<Space>"
 
 " All file
 nnoremap <Leader>f <Cmd>call ddu#start({
-    \  'sources': [{'name':'file_rec'}]
+    \  'sources': [{'name':'file_rec'}],
+    \  'uiParams': {
+    \    'ff': { 'startFilter': v:false }
+    \  },
     \  })<CR>
 
 " Buffer
