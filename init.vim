@@ -45,10 +45,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " for completion
 Plug 'Shougo/ddc.vim'
-Plug 'Shougo/ddc-around'
-Plug 'Shougo/ddc-matcher_head'
-Plug 'Shougo/ddc-sorter_rank'
-Plug 'Shougo/ddc-nvim-lsp'
+Plug 'Shougo/ddc-source-around'
+Plug 'Shougo/ddc-source-nvim-lsp'
+Plug 'Shougo/ddc-filter-matcher_head'
+Plug 'Shougo/ddc-filter-sorter_rank'
 Plug 'Shougo/ddc-ui-pum'
 
 Plug 'Shougo/pum.vim'

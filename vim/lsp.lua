@@ -1,3 +1,9 @@
+-- ddc lps config
+local capabilities = require("ddc_nvim_lsp").make_client_capabilities()
+require("lspconfig").denols.setup({
+  capabilities = capabilities,
+})
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
