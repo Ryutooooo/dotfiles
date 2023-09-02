@@ -1,6 +1,5 @@
 -- statusline
 -- %<                                             trim from here
--- %{fugitive#head()}                             name of the current branch (needs fugitive.vim)
 -- %f                                             path+filename
 -- %m                                             check modifi{ed,able}
 -- %r                                             check readonly

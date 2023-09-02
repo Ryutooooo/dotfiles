@@ -29,6 +29,11 @@ Plug 'simeji/winresizer'
 Plug 'previm/previm'
 let g:previm_open_cmd = 'open -a Arc'
 
+Plug 'almo7aya/openingh.nvim'
+
+let g:previm_disable_default_css = 1
+let g:previm_custom_css_path = '~/dotfiles/vim/previm/markdown.css'
+
 " basic neovim lsp plugin
 Plug 'neovim/nvim-lspconfig'
 
@@ -64,6 +69,9 @@ Plug 'Shougo/ddu-ui-filer'
 " for Deno
 Plug 'vim-denops/denops.vim'
 Plug 'vim-denops/denops-helloworld.vim'
+
+" for Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -102,6 +110,9 @@ set smartindent
 
 " hidden cmdline
 set cmdheight=0
+
+" disable unnecessary statusline
+set laststatus=3
 
 " auto reload when moved pane
 augroup vimrc-checktime

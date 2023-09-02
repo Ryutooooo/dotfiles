@@ -31,7 +31,11 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'gopls', 'pyright', 'tsserver', 'vimls', 'intelephense', 'dartls', 'yamlls', 'solargraph' }
+-- NOTE: need to install bufls
+-- ```shell
+-- go install github.com/bufbuild/buf-language-server/cmd/bufls@latest
+-- ```
+local servers = { 'gopls', 'pyright', 'tsserver', 'vimls', 'intelephense', 'dartls', 'yamlls', 'solargraph', 'bufls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,

@@ -46,6 +46,9 @@ nnoremap <Leader>n <Cmd>call ddu#start({
 " TODO: This keymap should be replaced by ddu
 nnoremap <Leader>,s :RG<CR>
 
+" Open current buffer in GitHub
+nnoremap <Leader>,gf :OpenInGHFile<CR>
+
 nnoremap <Leader>c :Commands<CR>
 
 " turn on Terminal
