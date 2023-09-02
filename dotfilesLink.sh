@@ -9,8 +9,8 @@ do
   [ "$f" = ".DS_Store" ] && continue
   [ "$f" = ".gitignore" ] && continue
   [ "$f" = ".gitmodules" ] && continue
-  [ "$f" = "init.vim" ] && continue
   [ "$f" = ".alacritty.yml" ] && continue
+  [ "$f" = "init.vim" ] && continue
   [ "$f" = "starship.toml" ] && continue
 
   ln -snfv `pwd`/"$f" "$HOME"/"$f"
