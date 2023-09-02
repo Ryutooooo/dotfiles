@@ -13,7 +13,7 @@ export CLOUDSDK_PYTHON=python3
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/go
 export GOPRIVATE=github.com/zeals-co-ltd
 
 export PATH="$GOPATH/bin:$PATH"

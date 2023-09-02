@@ -123,7 +123,7 @@ ghq_selector() {
   if [ -z $destination ]; then
     : # nothing
   else
-   ghq list --full-path | grep $destination
+   echo $destination
   fi
 }
 
@@ -136,7 +136,7 @@ ghq_tmux() {
     session=$(tmux ls | grep $destination)
     # confirm session is already existing
     if [[ -z $session ]];then
-      tmux new-session -d -s $destination -c $full_destination
+      tmux new-session -d -s $destination -c $(echo "$(ghq root)/${full_destination}")
       attach_tmux $destination
     else
       attach_tmux $destination
@@ -145,7 +145,7 @@ ghq_tmux() {
 }
 
 ghq_cd() {
-  cd $(ghq_selector)
+  cd $(echo "$(ghq root)/$(ghq_selector)")
 }
 
 # tmux shortcut
