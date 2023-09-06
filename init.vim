@@ -49,6 +49,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " for completion
 Plug 'Shougo/ddc.vim'
+Plug 'ryota2357/ddu-column-icon_filename'
 Plug 'Shougo/ddc-source-around'
 Plug 'Shougo/ddc-source-nvim-lsp'
 Plug 'Shougo/ddc-filter-matcher_head'
