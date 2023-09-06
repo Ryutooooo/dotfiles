@@ -1,4 +1,4 @@
-export LANG=ja_JP.UTF-8
+export LANG=en_GB.UTF-8
 export EDITOR=nvim
 export SHELL=/opt/homebrew/bin/bash
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
