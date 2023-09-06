@@ -37,6 +37,10 @@ let g:previm_custom_css_path = '~/dotfiles/vim/previm/markdown.css'
 " basic neovim lsp plugin
 Plug 'neovim/nvim-lspconfig'
 
+" Install manager for LSP, DAP, linters, fomatters 
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
 " color scheme
 Plug 'Yagua/nebulous.nvim'
 
