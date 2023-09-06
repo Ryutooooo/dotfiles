@@ -1,7 +1,4 @@
-"================================================================
-"                       Key map
-"================================================================
-" turn off hightlight
+" Turn off hightlight
 nnoremap <ESC><ESC> :noh<CR>
 
 let mapleader = "\<Space>"
@@ -15,27 +12,22 @@ nnoremap <Leader>n :DDUFiler<CR>
 nnoremap <C-g> :DDURg<CR>
 " TODO: This keymap should be replaced by ddu
 nnoremap <Leader>,s :RG<CR>
-
 " Open current buffer in GitHub
 nnoremap <Leader>,gf :OpenInGHFile<CR>
-
+" TODO: This keymap should be replaced by ddu
 nnoremap <Leader>c :Commands<CR>
 
-" turn on Terminal
-nnoremap <Leader>t :terminal<CR>
-" save file
+" Save file
 nnoremap <Leader>w :w<CR>
-" close file
+" Close buffer
 nnoremap <Leader>q :q<CR>
-" close vim
+" Close vim
 nnoremap <Leader>a :qa<CR>
-" reload vimrc
+" Reload vimrc
 nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>
-
 nnoremap <Leader>s :PrevimOpen<CR>
-
 nnoremap <Leader>g :GitBlameToggle<CR>
-
+" Switch tab
 nnoremap <Tab> gt
+" Create new tab
 nnoremap <S-Tab> :tabnew<CR>
-
