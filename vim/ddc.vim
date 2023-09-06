@@ -4,9 +4,9 @@ call ddc#custom#patch_global('sourceOptions', {
       \ '_': {
       \   'matchers': ['matcher_head'],
       \   'sorters': ['sorter_rank']},
-      \ 'around': #{ mark: 'A'},
+      \ 'around': #{ mark: '[Around]'},
       \ 'nvim-lsp': #{
-      \   mark: 'lsp',
+      \   mark: '[LSP]',
       \   forceCompletionPattern: '\.\w*|:\w*|->\w*' },
       \ })
 call ddc#custom#patch_global('sourceParams', #{
