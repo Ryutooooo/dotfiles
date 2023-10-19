@@ -1,62 +1,64 @@
 call ddu#custom#patch_global({
       \  'uiParams': {
-      \    'ff': {
-      \      'autoAction': {'name': 'preview'},
-      \      'filterFloatingPosition': "top",
-      \      'filterSplitDirection': "floating",
-      \      'floatingBorder': "single",
-      \      'previewFloating': v:true,
-      \      'previewFloatingBorder': "single",
-      \      'previewSplit': "vertical",
-      \      'split': "floating",
-      \      'startAutoAction': v:true,
+      \    'ff': #{
+      \      autoAction: {'name': 'preview'},
+      \      filterFloatingPosition: "top",
+      \      filterSplitDirection: "floating",
+      \      floatingBorder: "single",
+      \      previewFloating: v:true,
+      \      previewFloatingBorder: "single",
+      \      previewSplit: "vertical",
+      \      split: "floating",
+      \      startAutoAction: v:true,
       \    },
-      \    'filer': {
-      \      'sort': 'filename',
-      \      'split': 'vertical',
-      \      'splitDirection': 'topleft',
+      \    'filer': #{
+      \      sort: 'filename',
+      \      split: 'vertical',
+      \      splitDirection: 'topleft',
       \    },
       \  },
+      \  })
+
+call ddu#custom#patch_global({
       \  'sourceParams': {
       \    'rg' : {
-      \    'args': ['--column', '--no-heading', '--color', 'never'],
-      \    },
-      \    'file_rg': {
-      \      'cmd': ['rg', '--files', '--glob', '!.git', '--color', 'never', '--no-messages'],
+      \      'args': ['--column', '--no-heading', '--color', 'never'],
       \    },
       \    'file_rec': {
-      \      'ignoredDirectories': ['.git', 'node_modules']
+      \      'chunkSize': 500,
+      \      'ignoredDirectories': ['.git', 'node_modules'],
       \    },
       \  },
-      \  'sourceOptions': {
-      \    '_': {
-      \      'ignoreCase': v:true,
-      \      'matchers': ['matcher_substring'],     
-      \ },
+      \  })
+
+call ddu#custom#patch_global({
+      \  'sourceOptions': #{
+      \    _: #{
+      \      ignoreCase: v:true,
+      \      matchers: ['matcher_fzf'],
+      \      sorters: ['sorter_fzf'],
+      \    },
+      \    file: #{
+      \      columns: ['icon_filename']
+      \    },
+      \    file_rec: #{
+      \      columns: ['icon_filename_for_ff']
+      \    },
       \  },
+      \  })
+
+call ddu#custom#patch_global({
       \  'kindOptions': {
       \    'action': #{ defaultAction: 'do', },
       \    'file': {
       \      'defaultAction': 'open',
       \    },
       \  },
-      \  'filterParams': {
-      \    'matcher_substring': {
-      \      'highlightMatched': 'Search',
-      \    },
-      \  },
       \  })
 
 call ddu#custom#alias('column', 'icon_filename_for_ff', 'icon_filename')
+
 call ddu#custom#patch_global(#{
-  \   sourceOptions: #{
-  \     file: #{
-  \       columns: ['icon_filename']
-  \     },
-  \     file_rec: #{
-  \       columns: ['icon_filename_for_ff']
-  \     },
-  \   },
   \   columnParams: #{
   \     icon_filename: #{
   \       defaultIcon: #{ icon: '' },
@@ -175,7 +177,7 @@ function! DDUFiler()
         \  },
         \  'uiParams': {
         \    'filer': { 
-        \      'winWidth': &columns / 10, 
+        \      'winWidth': &columns / 8, 
         \    },
         \  },
         \  'sources': [{'name': 'file'}],
