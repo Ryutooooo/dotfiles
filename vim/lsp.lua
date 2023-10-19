@@ -1,3 +1,4 @@
+local vim = vim
 -- ddc lps config
 local capabilities = require("ddc_nvim_lsp").make_client_capabilities()
 require("lspconfig").denols.setup({
@@ -31,10 +32,22 @@ local on_attach = function(client, bufnr)
   end, opts)
 end
 
--- fmt after exit insert mode
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+local autocmd = vim.api.nvim_create_autocmd
+
+-- go fmt after modified buffer
+autocmd({ "BufWritePost" }, {
+  pattern = { "*.go" },
   callback = function() vim.lsp.buf.format { async = true } end,
 })
+
+-- LSP hover config
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts
+  opts.border = opts.border
+  opts.max_width = opts.max_width
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
 
 -- Disable inline diagnostic message
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -56,6 +69,7 @@ vim.diagnostic.config({
   },
 })
 
+-- mason config
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers {
