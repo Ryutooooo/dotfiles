@@ -42,7 +42,7 @@ Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 
 " color scheme
-Plug 'Yagua/nebulous.nvim'
+Plug 'rebelot/kanagawa.nvim'
 
 " enhancing syntax hightlight
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -84,6 +84,7 @@ call plug#end()
 "     editor
 "================================================================
 
+colorscheme kanagawa-dragon
 set number
 
 set backspace=indent,eol,start
