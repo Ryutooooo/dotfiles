@@ -12,16 +12,16 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: xterm-256color
 import:
- - ~/.config/alacritty/themes/themes/kanagawa-dragon.yaml
+ - ~/.config/alacritty/themes/themes/kanagawa-wave.yaml
 
 window:
   dimensions:
-    columns: 180
+    columns: 165
     lines: 60
 
   position:
-    x: 570
-    y: 270
+    x: 300
+    y: 230
 
   padding:
     x: 0
