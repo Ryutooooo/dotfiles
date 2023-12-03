@@ -158,7 +158,8 @@ tm() {
       attach_tmux $session
     fi
   else
-    tmux new -s $1
+    tmux new-session -d -s $1
+    attach_tmux $1
   fi
 }
 
