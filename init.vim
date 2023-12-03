@@ -84,7 +84,7 @@ call plug#end()
 "     editor
 "================================================================
 
-colorscheme kanagawa-dragon
+colorscheme kanagawa-wave
 set number
 
 set backspace=indent,eol,start
@@ -133,7 +133,6 @@ runtime vim/lsp.lua
 runtime vim/treesitter.lua
 runtime vim/keymap.vim
 runtime vim/go.vim
-runtime vim/colorscheme.lua
 runtime vim/statusline.lua
 runtime vim/pum.vim
 
