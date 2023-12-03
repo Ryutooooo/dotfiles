@@ -1,6 +1,6 @@
 local vim = vim
--- ddc lps config
-local capabilities = require("ddc_nvim_lsp").make_client_capabilities()
+
+local capabilities = require("ddc_source_lsp").make_client_capabilities()
 require("lspconfig").denols.setup({
   capabilities = capabilities,
 })
