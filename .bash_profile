@@ -4,6 +4,8 @@ export SHELL=/opt/homebrew/bin/bash
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+export MYVIMRC=$HOME/.config/nvim/init.vim
+
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
