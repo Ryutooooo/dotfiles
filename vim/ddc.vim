@@ -25,3 +25,12 @@ call ddc#custom#patch_global('sourceParams', #{
 
 " Init ddc.
 call ddc#enable()
+
+lua << EOF
+local ddc_previewer_floating = require("ddc_previewer_floating")
+ddc_previewer_floating.enable()
+ddc_previewer_floating.setup({
+  max_width = vim.o.columns,
+  max_height = vim.o.lines,
+})
+EOF

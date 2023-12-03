@@ -57,6 +57,7 @@ Plug 'Shougo/ddc-source-nvim-lsp'
 Plug 'Shougo/ddc-filter-matcher_head'
 Plug 'Shougo/ddc-filter-sorter_rank'
 Plug 'Shougo/ddc-ui-pum'
+Plug 'uga-rosa/ddc-previewer-floating'
 
 Plug 'Shougo/pum.vim'
 
