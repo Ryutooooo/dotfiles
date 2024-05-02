@@ -185,3 +185,19 @@ function! DDUFiler()
         \  })
 endfunction
 command! DDUFiler :call DDUFiler()
+
+function! DDULines()
+  call ddu#start({
+        \  'sources':[
+        \    {
+        \      'name': 'line',
+        \    },
+        \  ],
+        \  'ui': 'ff',
+        \  'uiParams': {
+        \    'ff': g:DDUUIFFSizeConfig,
+        \  },
+        \  'volatile': v:true,
+        \  })
+endfunction
+command! DDULines :call DDULines()

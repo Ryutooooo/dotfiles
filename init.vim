@@ -53,6 +53,7 @@ Plug 'github/copilot.vim'
 " ddc
 Plug 'Shougo/ddc.vim'
 Plug 'Shougo/ddc-source-around'
+Plug 'Shougo/ddu-source-line'
 Plug 'uga-rosa/ddc-source-lsp-setup'
 Plug 'Shougo/ddc-source-lsp'
 Plug 'Shougo/ddc-filter-matcher_head'
