@@ -19,7 +19,7 @@ alias dig='dig +noedns'
 alias books='cp -r ~/Library/Mobile\ Documents/iCloud~com~apple~iBooks ~/Documents/ALLMYBOOKS'
 alias swagger='docker run -p 80:8080 swaggerapi/swagger-editor'
 alias uconv='docker run -i --rm genzouw/uconv'
-alias dev="attach_dev_contaier"
+alias dev="attach_dev_container"
 alias gcd="ghq_cd"
 alias python="python3"
 
@@ -43,7 +43,7 @@ bind -x '"\C-g": "ghq_tmux"'
 #			Function
 #================================================================
 
-attach_dev_contaier() {
+attach_dev_container() {
   CONTAINER_ID=$(docker ps -a | grep devenv | head -1 | cut -d ' ' -f 1)
   if [ -z $CONTAINER_ID ]; then
     docker run -it --mount type=bind,source=$HOME/,target=/workspace devenv
