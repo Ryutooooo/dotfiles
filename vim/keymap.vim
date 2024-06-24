@@ -1,13 +1,14 @@
-" Turn off hightlight
+" Turn off highlight
 nnoremap <ESC><ESC> :noh<CR>
 
 let mapleader = "\<Space>"
+
 " List All files on DDU fuzzy finder
-nnoremap <Leader>f :DDUFiles<CR>
+nnoremap <Leader>f :Ddu file_rec -ui=ff<CR>
 " List buffers on DDU fuzzy finder
-nnoremap <Leader>b :DDUBuffers<CR>
+nnoremap <Leader>b :Ddu buffer -ui=ff<CR>
 " Filer
-nnoremap <Leader>n :DDUFiler<CR>
+nnoremap <Leader>n :Ddu file -ui=filer<CR>
 " Search file by string under cursor
 nnoremap <C-g> :DDURg<CR>
 " TODO: This keymap should be replaced by ddu
