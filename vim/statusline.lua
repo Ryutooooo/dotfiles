@@ -6,5 +6,6 @@
 -- %w                                             check preview window
 -- %=                                             left/right separator
 -- %l/%L,%c                                       rownumber/total,colnumber
+-- %{&filetype}                                   filetype
 -- %{&fileencoding?&fileencoding:&encoding}       file encoding
-vim.opt.statusline = "  %< %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
+vim.opt.statusline = " %< %f %m %r %w %= Ln %l/%L, Col %c %{&filetype} %{&fileencoding?&fileencoding:&encoding} "
