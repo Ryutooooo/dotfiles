@@ -1,3 +1,6 @@
+" TODO: need to make it variable 
+let g:denops#deno = '/Users/ryutooooo/.deno/bin/deno'
+
 "================================================================
 "     vim-plug config files
 "================================================================

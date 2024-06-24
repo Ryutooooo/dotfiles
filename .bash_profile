@@ -37,3 +37,5 @@ export PATH="$PATH:/Users/${USER}/Library/Android/sdk/platform-tools"
 if [ -f ~/.bashrc ] ; then
 . ~/.bashrc
 fi
+
+export DENO_INSTALL="/Users/ryutooooo/.deno"
