@@ -63,12 +63,13 @@ autocmd VimEnter,VimResized * call SetDDUUISize()
 function! SetDDUUISize()
 let s:DDUUIFFSizeConfig = #{ 
       \    previewCol: &columns / 2,
-      \    previewHeight: &lines / 10 * 9,
-      \    previewWidth: &columns / 10 * 4,
+      \    previewHeight: &lines / 10 * 8,
+      \    previewRow: &lines / 10,
+      \    previewWidth: &columns / 11 * 5,
       \    winCol: &columns / 10 * 1,
-      \    winHeight: &lines / 10 * 9,
-      \    winRow: &lines / 20,
-      \    winWidth: &columns / 10 * 4,
+      \    winHeight: &lines / 10 * 8,
+      \    winRow: &lines / 10,
+      \    winWidth: &columns / 5 * 2,
       \  }
 call ddu#custom#patch_global(#{
       \ uiParams: #{
