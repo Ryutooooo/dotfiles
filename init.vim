@@ -44,9 +44,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 
-" color scheme
-Plug 'rebelot/kanagawa.nvim'
-
 " enhancing syntax hightlight
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -84,16 +81,22 @@ Plug 'Shougo/ddu-ui-filer'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+
+Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
+
 call plug#end()
 
 lua << EOF
+-- color
+vim.o.termguicolors = true
 require('gitblame').setup {
      --Note how the `gitblame_` prefix is omitted in `setup`
     enabled = false,
 }
 EOF
 
-colorscheme kanagawa-wave
+colorscheme moonfly
+
 set number
 set backspace=indent,eol,start
 " copy os clipboard
