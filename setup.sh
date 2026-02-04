@@ -4,6 +4,12 @@ section() {
     echo "\n=== ${1} ===\n"
 }
 
+# TODO: need to execute brew
+
+# TODO: add validation to GITHUB_TOKEN is set or not
+
+envsubst < .gitconfig.txt > .gitconfig
+
 section "get Cica"
 curl -OL https://github.com/miiton/Cica/releases/download/v5.0.2/Cica_v5.0.2_with_emoji.zip
 section "unzip font files"
@@ -22,3 +28,10 @@ sh ./dotfilesLink.sh
 
 section "configure fzf to bash"
 yes | $(brew --prefix)/opt/fzf/install
+
+section "install Claude Code"
+if command -v claude >/dev/null 2>&1; then
+    echo "Claude Code is already installed: $(claude --version)"
+else
+    curl -fsSL https://claude.ai/install.sh | bash
+fi
