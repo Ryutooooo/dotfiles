@@ -21,12 +21,12 @@ nnoremap <Leader>c :Commands<CR>
 " Save file
 nnoremap <Leader>w :w<CR>
 " Close buffer
-nnoremap <Leader>q :q<CR>
+" nnoremap <Leader>q :q<CR>
 " Close vim
 nnoremap <Leader>a :qa<CR>
 " Reload vimrc
 nnoremap <Leader>r :source $HOME/.config/nvim/init.vim<CR>
-nnoremap <Leader>s :PrevimOpen<CR>
+nnoremap <Leader>s :MarkdownPreview<CR>
 nnoremap <Leader>g :GitBlameToggle<CR>
 " Switch tab
 nnoremap <Tab> gt
