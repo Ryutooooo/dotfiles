@@ -1,3 +1,4 @@
 .vim/plugged
 .tmux/plugins
 .fzf.bash
+.gitconfig
