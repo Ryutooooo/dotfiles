@@ -72,7 +72,7 @@ fi
 
 # --- シンボリックリンク ---
 section "create symbolic links"
-bash "$DOTFILES_DIR/dotfilesLink.sh"
+bash "$DOTFILES_DIR/link-dotfiles.sh"
 
 # --- fzf ---
 section "configure fzf"
