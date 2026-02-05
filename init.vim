@@ -1,5 +1,5 @@
 " TODO: need to make it variable 
-let g:denops#deno = '/Users/ryutooooo/.deno/bin/deno'
+let g:denops#deno = exepath('deno')
 
 "================================================================
 "     vim-plug config files
@@ -29,10 +29,12 @@ Plug 'f-person/git-blame.nvim'
 Plug 'simeji/winresizer'
 
 " Preview markdown
-Plug 'previm/previm'
-let g:previm_open_cmd = 'open -a Arc'
-let g:previm_disable_default_css = 1
-let g:previm_custom_css_path = '~/dotfiles/vim/previm/markdown.css'
+" Plug 'previm/previm'
+" let g:previm_open_cmd = 'open -a Arc'
+" let g:previm_disable_default_css = 1
+" let g:previm_custom_css_path = '~/dotfiles/vim/previm/markdown.css'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " Open a buffer in GitHub
 Plug 'almo7aya/openingh.nvim'
@@ -44,11 +46,14 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 
-" enhancing syntax hightlight
+" enhancing syntax hihgtlight
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Enable syntax highlighting for helm
+Plug 'towolf/vim-helm'
+
 " GitHub copilot
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 
 " ddc
 Plug 'Shougo/ddc.vim'
@@ -81,6 +86,11 @@ Plug 'Shougo/ddu-ui-filer'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+Plug 'lewis6991/gitsigns.nvim'
+
+" Flutter tools
+Plug 'nvim-lua/plenary.nvim'
+Plug 'akinsho/flutter-tools.nvim'
 
 Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
 
@@ -89,6 +99,11 @@ call plug#end()
 lua << EOF
 -- color
 vim.o.termguicolors = true
+-- Flutter
+require('flutter-tools').setup {}
+--
+require('gitsigns').setup()
+
 require('gitblame').setup {
      --Note how the `gitblame_` prefix is omitted in `setup`
     enabled = false,
@@ -137,6 +152,18 @@ runtime vim/nvim-dap.lua
 runtime vim/treesitter.lua
 runtime vim/statusline.lua
 runtime vim/lsp.lua
+
+function! s:typeprof_setup() abort
+  call lsp#register_server(#{
+  \  name: typeprof,
+  \  tcp: { server_info-> "localhost:" . s:port },
+  \  allowlist: ['ruby'],
+  \})
+endfunction
+
+augroup typeprof_install
+  autocmd User typeprof_setup call s:typeprof_setup()
+augroup END
 
 autocmd BufNewFile,BufRead *.dig set filetype=yaml
 autocmd Syntax yaml setl indentkeys-=<:>

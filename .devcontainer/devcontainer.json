@@ -1,0 +1,11 @@
+{
+  "name": "dev",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/neovim-apt-get:1": {}
+  },
+  "mounts": [
+    "source=nvim-data,target=/home/vscode/.local/share/nvim,type=volume"
+  ],
+  "postCreateCommand": "nvim --headless +PlugInstall +qall 2>/dev/null || true"
+}
