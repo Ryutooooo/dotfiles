@@ -4,15 +4,15 @@
 alias vim='nvim'
 alias ls='ls -GF'
 alias la='ls -a'
-alias ll='ls -al'
-alias ts='tig status'
+alias ll='ls -altU'
+# alias ts='tig status'
 alias relogin='exec $SHELL -l'
 alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl describe'
 alias kl='kubectl logs -f'
 alias ke='kubectl exec'
-alias dc='docker-compose'
+alias dc='docker compose'
 alias lz='lazygit'
 alias sed='gsed'
 alias dig='dig +noedns'
@@ -21,6 +21,7 @@ alias swagger='docker run -p 80:8080 swaggerapi/swagger-editor'
 alias uconv='docker run -i --rm genzouw/uconv'
 alias dev="attach_dev_container"
 alias gcd="ghq_cd"
+alias c="cursor ."
 alias python="python3"
 
 
@@ -34,10 +35,10 @@ alias gp='git pull'
 alias gl='git log'
 alias gf='git fetch'
 
-#================================================================
-#			Key bind
-#================================================================
-bind -x '"\C-g": "ghq_tmux"'
+# Key bind
+if [[ $- == *i* ]]; then
+  bind -x '"\C-g": "ghq_tmux"'
+fi
 
 #================================================================
 #			Function
@@ -74,16 +75,23 @@ cleanup() {
 }
 
 reauth() { 
+  unset STARSHIP_DISABLE_GCLOUD
   gcloud auth login && gcloud auth application-default login
 }
 
-revoke() {
+kunset() {
   echo "🚨UNSET kube context"
   kubectl config unset contexts.$(kubectl config current-context).namespace
   kubectl config unset current-context
+}
+
+revoke() {
+  kunset
   printf '\n'
   echo "🚨UNSET gcloud auth"
+  export STARSHIP_DISABLE_GCLOUD=1
   gcloud auth revoke
+  gcloud auth application-default revoke
 }
 
 set_ctx() {
@@ -243,6 +251,10 @@ FZF-EOF"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
+if command -v pyenv &> /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
 #================================================================
 #     General
 #================================================================
@@ -259,18 +271,26 @@ function share_history {
 shopt -u histappend
 
 export HISTCONTROL=erasedups
-export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn:pwd:reauth"
-export HISTSIZE=7777
+export HISTIGNORE="ll:la:cd:gs:gb:gf:ts:tm:tmc:show:vim:kc:kn:pwd:reauth:git push -f origin \$(current_branch)"
+export HISTSIZE=77777
 
 PROMPT_COMMAND="share_history"
 
-if [ "" != $(which starship) ] ; then
+if command -v starship &> /dev/null; then
   eval "$(starship init bash)"
 fi
 # for version management of Node.js 
-if [ "" != $(which fnm) ] ; then
+if command -v fnm &> /dev/null; then
   eval "$(fnm env)"
 fi
 if [ -f $HOME/.carge/env ] ;then
   "HOME/.carge/env"
 fi
+
+echo ".bashrc loaded"
+. "$HOME/.cargo/env"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
+
+alias claude-mem='bun "/Users/ryutooooo/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
+export PATH="$HOME/.local/bin:$PATH"

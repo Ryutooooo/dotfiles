@@ -9,7 +9,7 @@ export MYVIMRC=$HOME/.config/nvim/init.vim
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
-export PATH="~/flutter/bin:$PATH"
+export PATH=$HOME/flutter/bin:$PATH
 
 export CLOUDSDK_PYTHON=python3
 
@@ -21,6 +21,8 @@ export GOPRIVATE=github.com/zeals-co-ltd
 export PATH="$GOPATH/bin:$PATH"
 
 export PATH=$PATH:~/.kube/plugins/jordanwilson230
+
+echo ".bash_profile loaded"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "/Users/${USER}/google-cloud-sdk/path.bash.inc" ]; then . "/Users/${USER}/google-cloud-sdk/path.bash.inc"; fi
@@ -34,8 +36,18 @@ export PATH="$PATH:`ghq root`/`ghq list | grep nand`/tools"
 
 export PATH="$PATH:/Users/${USER}/Library/Android/sdk/platform-tools"
 
+eval "$(rbenv init - bash)"
+
 if [ -f ~/.bashrc ] ; then
 . ~/.bashrc
 fi
 
 export DENO_INSTALL="/Users/ryutooooo/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+echo ".bash_profile loaded"
+. "$HOME/.cargo/env"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
