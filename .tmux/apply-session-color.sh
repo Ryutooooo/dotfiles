@@ -3,7 +3,7 @@
 # Usage: apply-session-color.sh <session_name>
 
 SESSION_NAME="$1"
-COLOR_SCRIPT="$HOME/.tmux/session_color.sh"
+COLOR_SCRIPT="$HOME/.tmux/define-session-color.sh"
 
 # 各色を取得
 BASE=$("$COLOR_SCRIPT" "$SESSION_NAME" base)
