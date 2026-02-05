@@ -1,18 +1,21 @@
 import = [
-  # "~/.config/alacritty/themes/themes/hyper.toml",
-  # "~/.config/alacritty/themes/themes/monokai_charcoal.toml",
-  "~/.config/alacritty/themes/themes/terminal_app.toml",
-  # "~/.config/alacritty/themes/themes/xterm.toml",
+  "~/.config/alacritty/themes/themes/hyper.toml",
 ]
 
+[bell]
+command = { program = "afplay", args = ["/System/Library/Sounds/Glass.aiff"] }
+duration = 5
+
 [env]
+LANG = "ja_JP.UTF-8"
+LC_CTYPE = "ja_JP.UTF-8"
 term = "xterm-256color"
 
 [font]
 normal = { family = "Cica", style = "Regular" }
 bold = { family = "Cica", style = "Regular" }
 italic = { family = "Cica", style = "Regular" }
-size = 13.0
+size = 14.0
 
 [shell]
 program = "/opt/homebrew/bin/bash"
@@ -21,3 +24,6 @@ args = ["--login"]
 [window]
 decorations = "Buttonless"
 dimensions = { columns = 180, lines = 60 }
+dynamic_title = true
+padding = { x = 5, y = 3 }
+option_as_alt = "OnlyLeft"
