@@ -1,41 +1,33 @@
 local vim = vim
 
 local capabilities = require("ddc_source_lsp").make_client_capabilities()
-require("lspconfig").denols.setup({
-  capabilities = capabilities,
+
+-- Diagnostic keymaps
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+-- LSP keymaps via LspAttach autocmd (replaces on_attach)
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local bufnr = args.buf
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', 'ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<space><space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+  end,
 })
 
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  vim.keymap.set('n', '<space><space>f', function()
-    vim.lsp.buf.format { async = true }
-  end, opts)
-end
-
-local autocmd = vim.api.nvim_create_autocmd
-
 -- go fmt after modified buffer
-autocmd({ "BufWritePost" }, {
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   pattern = { "*.go" },
   callback = function() vim.lsp.buf.format { async = true } end,
 })
@@ -45,16 +37,9 @@ local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts
   opts.border = opts.border
-  opts.max_width = opts.max_width
+  opts.max_width = math.floor(vim.o.columns * 2)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
-
--- Disable inline diagnostic message
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = false,
-  }
-)
 
 -- hover ui config
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
@@ -63,27 +48,103 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 
 -- diagnostic ui config
 vim.diagnostic.config({
+  virtual_text = false,
   float = {
-    style = 'minimal',
     border = 'single',
   },
 })
 
 -- mason config
 require("mason").setup()
-require("mason-lspconfig").setup()
-require("mason-lspconfig").setup_handlers {
-  function(server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup {
-      on_attach = on_attach,
-      settings = {
-        gopls = {
-          analyses = {
-            unusedparams = true,
-          },
-          staticcheck = true,
-        },
-      },
+require("mason-lspconfig").setup({
+  automatic_enable = true,
+})
+
+-- Common LSP config for all servers
+vim.lsp.config('*', {
+  capabilities = capabilities,
+})
+
+-- ts_ls (formerly tsserver) - only attach in Node.js projects
+vim.lsp.config('ts_ls', {
+  root_markers = { 'package.json' },
+})
+
+-- eslint - only attach in Node.js projects
+vim.lsp.config('eslint', {
+  root_markers = { 'package.json' },
+})
+
+-- denols - only attach in Deno projects
+vim.lsp.config('denols', {
+  root_markers = { 'deno.json', 'deno.jsonc', 'deps.ts', 'import_map.json' },
+  init_options = {
+    lint = true,
+    unstable = true,
+    suggest = {
+      import = {
+        hosts = {
+          ["https://deno.land"] = true,
+          ["https://cnhdn.nest.land"] = true,
+          ["https://crus.land"] = true,
+        }
+      }
     }
-  end,
+  },
+})
+
+-- gopls config
+vim.lsp.config('gopls', {
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+})
+
+-- typos_lsp config
+vim.lsp.config('typos_lsp', {
+  settings = {
+    typos_lsp = {
+      config = '~/.config/nvim/.typos.toml',
+    },
+  },
+})
+
+-- typeprof config
+vim.lsp.config('typeprof', {})
+vim.lsp.enable('typeprof')
+
+-- dartls config
+local dart_capabilities = vim.lsp.protocol.make_client_capabilities()
+dart_capabilities.textDocument.codeAction = {
+  dynamicRegistration = false,
+  codeActionLiteralSupport = {
+    codeActionKind = {
+      valueSet = {
+        "",
+        "quickfix",
+        "refactor",
+        "refactor.extract",
+        "refactor.inline",
+        "refactor.rewrite",
+        "source",
+        "source.organizeImports",
+      },
+    },
+  },
 }
+
+vim.lsp.config('dartls', {
+  capabilities = dart_capabilities,
+  filetypes = { "dart" },
+  settings = {
+    dart = {
+      devToolsBrowser = "arc",
+    },
+  },
+})
+vim.lsp.enable('dartls')
