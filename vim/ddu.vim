@@ -1,17 +1,9 @@
 " call ddu#custom#patch_global({'profile': v:true})
 
-call ddu#custom#alias('column', 'icon_filename_for_ff', 'icon_filename')
+" call ddu#custom#alias('column', 'icon_filename_for_ff', 'icon_filename')
 
 call ddu#custom#patch_global(#{
       \  columnParams: #{
-      \    icon_filename: #{
-      \      defaultIcon: #{ icon: ' ' },
-      \    },
-      \    icon_filename_for_ff: #{
-      \      defaultIcon: #{ icon: ' ' },
-      \      padding: 1,
-      \      pathDisplayOption: 'relative'
-      \    }
       \  },
       \  kindOptions: #{
       \    file: #{ defaultAction: 'open' },
@@ -21,13 +13,12 @@ call ddu#custom#patch_global(#{
       \    _: #{
       \      ignoreCase: v:true,
       \      matchers: ['matcher_fzf'],
-      \      sorters: ['sorter_fzf'],
+      \      sorters: ['sorter_alpha'],
       \    },
       \    file: #{
-      \      columns: ['icon_filename']
+      \      columns: ['icon_filename'],
       \    },
       \    file_rec: #{
-      \      columns: ['icon_filename_for_ff']
       \    },
       \  },
       \  sourceParams: {
@@ -42,9 +33,15 @@ call ddu#custom#patch_global(#{
       \  uiParams: #{
       \    ff: #{
       \      autoAction: {'name': 'preview'},
-      \      floatingBorder: "single",
+      \      floatingBorder: "rounded",
+      \      highlights: #{
+      \        filterText: 'Statement',
+      \        floating: 'Normal',
+      \        floatingBorder: 'dduBorder',
+      \        floatingcursorLine: 'CursorLine',
+      \      },
       \      previewFloating: v:true,
-      \      previewFloatingBorder: "single",
+      \      previewFloatingBorder: "rounded",
       \      previewSplit: "vertical",
       \      split: "floating",
       \      startAutoAction: v:true,
@@ -62,14 +59,14 @@ autocmd VimEnter,VimResized * call SetDDUUISize()
 
 function! SetDDUUISize()
 let s:DDUUIFFSizeConfig = #{ 
-      \    previewCol: &columns / 2,
-      \    previewHeight: &lines / 10 * 8,
-      \    previewRow: &lines / 10,
-      \    previewWidth: &columns / 11 * 5,
-      \    winCol: &columns / 10 * 1,
-      \    winHeight: &lines / 10 * 8,
-      \    winRow: &lines / 10,
-      \    winWidth: &columns / 5 * 2,
+      \    previewCol: &columns / 2 + 1,
+      \    previewHeight: &lines - 8,
+      \    previewRow: 1,
+      \    previewWidth: &columns / 2 - 2,
+      \    winCol: 1,
+      \    winHeight: &lines - 8,
+      \    winRow: 1,
+      \    winWidth: &columns / 2 - 2,
       \  }
 call ddu#custom#patch_global(#{
       \ uiParams: #{
@@ -93,6 +90,7 @@ endfunction
 " Fuzzy Finder
 autocmd FileType ddu-ff call s:ddu_ff_settings()
 function! s:ddu_ff_settings() abort
+  setlocal cursorline
   nnoremap <buffer> <CR> <Cmd>call DoDefaultAction()<CR>
   nnoremap <buffer> i <Cmd>call ddu#ui#do_action('openFilterWindow')<CR>
   nnoremap <buffer> p <Cmd>call ddu#ui#do_action('preview')<CR>
@@ -118,6 +116,7 @@ endfunction
 command! DDURg :call DDURg()
 
 function! DDULines()
+  " :Ddu line -ui=ff -ui-param-ff-split='no'
   :Ddu line -ui=ff
 endfunction
 command! DDULines :call DDULines()
