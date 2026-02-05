@@ -1,0 +1,16 @@
+[user]
+  name = Ryutooooo
+  email = rf.ryutooooo.0907@gmail.com
+
+[alias]
+  b = branch
+  c = checkout
+  d = diff
+  f = fetch
+  s = status
+
+[core]
+	excludesfile = /Users/ryutooooo/.gitignore_global
+
+[ghq]
+  	root = ~/go/src

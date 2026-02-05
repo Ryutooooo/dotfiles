@@ -12,7 +12,7 @@ section() {
 
 # --- 依存ツールのチェック ---
 section "check dependencies"
-for cmd in curl unzip envsubst; do
+for cmd in curl unzip; do
     if ! command -v "$cmd" >/dev/null 2>&1; then
         echo "Error: $cmd is required but not found." >&2
         exit 1
@@ -30,13 +30,16 @@ fi
 section "brew bundle install"
 brew bundle install --file="$DOTFILES_DIR/Brewfile"
 
-# --- GITHUB_TOKEN & gitconfig ---
+# --- gitconfig ---
 section "configure gitconfig"
-if [[ -z "${GITHUB_TOKEN:-}" ]]; then
-    echo "Warning: GITHUB_TOKEN is not set. Skipping gitconfig generation." >&2
+cp "$DOTFILES_DIR/gitconfig.txt" "$DOTFILES_DIR/.gitconfig"
+
+section "configure gh auth"
+if gh auth status >/dev/null 2>&1; then
+    gh auth setup-git
+    echo "gh credential helper configured."
 else
-    envsubst < "$DOTFILES_DIR/gitconfig.txt" > "$DOTFILES_DIR/.gitconfig"
-    echo "Generated .gitconfig with GITHUB_TOKEN."
+    echo "Warning: gh is not authenticated. Run 'gh auth login' to set up." >&2
 fi
 
 # --- Cica フォント ---
