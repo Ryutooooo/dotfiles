@@ -103,9 +103,10 @@ fi
 # --- TPM (Tmux Plugin Manager) ---
 section "install TPM"
 TPM_DIR="$HOME/.tmux/plugins/tpm"
-if [[ -d "$TPM_DIR" ]]; then
+if [[ -f "$TPM_DIR/tpm" ]]; then
     echo "TPM is already installed."
 else
+    rm -rf "$TPM_DIR"
     mkdir -p "$HOME/.tmux/plugins"
     git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
     echo "TPM installed. Run 'prefix + I' in tmux to install plugins."
