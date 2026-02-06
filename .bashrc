@@ -277,9 +277,10 @@ if command -v starship &> /dev/null; then
 fi
 
 echo ".bashrc loaded"
-. "$HOME/.cargo/env"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
 
 alias claude-mem='bun "/Users/ryutooooo/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
 export PATH="$HOME/dotfiles/bin:$HOME/.local/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

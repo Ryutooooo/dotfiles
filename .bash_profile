@@ -42,7 +42,6 @@ if [ -f ~/.bashrc ] ; then
 fi
 
 echo ".bash_profile loaded"
-. "$HOME/.cargo/env"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
