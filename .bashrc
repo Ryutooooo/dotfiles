@@ -13,7 +13,6 @@ alias kd='kubectl describe'
 alias kl='kubectl logs -f'
 alias ke='kubectl exec'
 alias dc='docker compose'
-alias lz='lazygit'
 alias sed='gsed'
 alias dig='dig +noedns'
 alias books='cp -r ~/Library/Mobile\ Documents/iCloud~com~apple~iBooks ~/Documents/ALLMYBOOKS'
@@ -251,9 +250,6 @@ FZF-EOF"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-if command -v pyenv &> /dev/null; then
-  eval "$(pyenv init -)"
-fi
 
 #================================================================
 #     General
@@ -278,13 +274,6 @@ PROMPT_COMMAND="share_history"
 
 if command -v starship &> /dev/null; then
   eval "$(starship init bash)"
-fi
-# for version management of Node.js 
-if command -v fnm &> /dev/null; then
-  eval "$(fnm env)"
-fi
-if [ -f $HOME/.carge/env ] ;then
-  "HOME/.carge/env"
 fi
 
 echo ".bashrc loaded"

@@ -60,6 +60,17 @@ else
     echo "Cica font installed."
 fi
 
+# --- Alacritty theme ---
+section "install Alacritty theme"
+ALACRITTY_THEME_DIR="$HOME/.config/alacritty/themes"
+if [[ -d "$ALACRITTY_THEME_DIR" ]]; then
+    echo "Alacritty theme is already installed."
+else
+    mkdir -p "$HOME/.config/alacritty"
+    git clone https://github.com/alacritty/alacritty-theme "$ALACRITTY_THEME_DIR"
+    echo "Alacritty theme installed."
+fi
+
 # --- git-completion.bash ---
 section "install git-completion.bash"
 if [[ -f "$DOTFILES_DIR/git-completion.bash" ]]; then

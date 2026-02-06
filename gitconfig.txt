@@ -10,7 +10,7 @@
   s = status
 
 [core]
-	excludesfile = /Users/ryutooooo/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [ghq]
   	root = ~/go/src

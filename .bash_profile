@@ -36,13 +36,12 @@ export PATH="$PATH:`ghq root`/`ghq list | grep nand`/tools"
 
 export PATH="$PATH:/Users/${USER}/Library/Android/sdk/platform-tools"
 
-eval "$(rbenv init - bash)"
 
 if [ -f ~/.bashrc ] ; then
 . ~/.bashrc
 fi
 
-export DENO_INSTALL="/Users/ryutooooo/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 echo ".bash_profile loaded"
