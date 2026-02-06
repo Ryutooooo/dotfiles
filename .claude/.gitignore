@@ -1,0 +1,41 @@
+# Credentials - NEVER commit these
+apikey_settings.json
+anthropic_key.sh
+settings.local.json
+
+# Generated/Cache
+history.jsonl
+stats-cache.json
+stats-cache.json.tmp
+cache/
+debug/
+file-history/
+shell-snapshots/
+paste-cache/
+plans/
+todos/
+tasks/
+projects/
+session-env/
+telemetry/
+statsig/
+ide/
+downloads/
+
+# Plugin cache (reinstalled via install-plugins.sh)
+plugins/cache/
+plugins/repos/
+plugins/marketplaces/
+plugins/installed_plugins.json
+plugins/install-counts-cache.json
+plugins/known_marketplaces.json
+plugins/config.json
+
+# Backup files
+plugins/*.bak
+
+# macOS
+.DS_Store
+
+# Logs
+hooks/*.log

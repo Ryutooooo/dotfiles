@@ -46,6 +46,13 @@ dotfiles/
 ├── bin/                # Utility scripts
 │   ├── dev-forward     # Port forwarding for devcontainers
 │   └── dev-forward-supabase
+├── .claude/            # Claude Code configuration
+│   ├── CLAUDE.md       # Personal work rules
+│   ├── settings.json   # Core settings
+│   ├── commands/       # Custom commands
+│   ├── agents/         # Custom agent definitions
+│   ├── hooks/          # Event hooks
+│   └── plugins/        # Plugin management
 ├── Brewfile            # Homebrew dependencies
 ├── setup.sh            # Main setup script
 └── link-dotfiles.sh    # Symlink creation script
@@ -127,3 +134,43 @@ The `<project-name>` can be any part of the project path (case-insensitive parti
 - **Neovim**: Pre-configured with vim-plug (plugins cached in Docker volume)
 - **SSHD**: Enables on-demand port forwarding from host
 - **SSH keys**: Mounted read-only for git operations
+
+## Claude Code
+
+Configuration for Claude Code CLI is managed in `.claude/` and symlinked to `~/.claude`.
+
+### What's Managed
+
+| Directory/File | Purpose |
+|----------------|---------|
+| `CLAUDE.md` | Personal work rules and methodology |
+| `settings.json` | Permissions, hooks, plugin settings |
+| `commands/` | Custom commands (e.g., `/review-and-fix`) |
+| `agents/` | Custom agent definitions |
+| `hooks/` | Event hook scripts |
+| `plugins/plugins.txt` | Plugin list for sync across machines |
+
+### Plugin Sync
+
+Plugins are not automatically synced. Use these scripts to manage them:
+
+```sh
+# Install plugins from list (on new machine)
+~/.claude/plugins/install-plugins.sh
+
+# Preview without installing
+~/.claude/plugins/install-plugins.sh --dry-run
+
+# Export current plugins to list (after installing new plugins)
+~/.claude/plugins/export-plugins.sh
+
+# Preview export
+~/.claude/plugins/export-plugins.sh --stdout
+```
+
+### Workflow
+
+1. Install a new plugin: `/install marketplace/plugin-name`
+2. Export to list: `~/.claude/plugins/export-plugins.sh`
+3. Commit `plugins.txt`
+4. On another machine: `~/.claude/plugins/install-plugins.sh`

@@ -1,0 +1,38 @@
+# Claude Code Plugin List
+# Format: marketplace/plugin-name[@version]
+# Lines starting with # are ignored
+#
+# Install: ~/.claude/plugins/install-plugins.sh
+# Export:  ~/.claude/plugins/export-plugins.sh
+
+# === Official Plugins ===
+claude-plugins-official/frontend-design
+claude-plugins-official/swift-lsp
+
+# === Claude Code Workflows ===
+claude-code-workflows/multi-platform-apps
+claude-code-workflows/context-management
+claude-code-workflows/code-review-ai
+claude-code-workflows/llm-application-dev
+claude-code-workflows/observability-monitoring
+claude-code-workflows/agent-orchestration
+claude-code-workflows/documentation-generation
+claude-code-workflows/comprehensive-review
+claude-code-workflows/error-diagnostics
+claude-code-workflows/distributed-debugging
+claude-code-workflows/performance-testing-review
+claude-code-workflows/machine-learning-ops
+claude-code-workflows/data-engineering
+claude-code-workflows/data-validation-suite
+claude-code-workflows/code-documentation
+claude-code-workflows/cloud-infrastructure
+claude-code-workflows/application-performance
+claude-code-workflows/backend-development
+claude-code-workflows/javascript-typescript
+claude-code-workflows/database-design
+claude-code-workflows/database-migrations
+
+# === Third Party ===
+thedotmack/claude-mem
+planning-with-files/planning-with-files
+voltagent-subagents/voltagent-biz
