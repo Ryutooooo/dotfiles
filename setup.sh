@@ -27,6 +27,13 @@ else
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+# Homebrew の PATH を確保（インストール直後でも動作するように）
+if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 section "brew bundle install"
 brew bundle install --file="$DOTFILES_DIR/Brewfile"
 
