@@ -65,3 +65,65 @@ After installing a new formula or cask:
 ```sh
 brew bundle dump --force
 ```
+
+## Devcontainer
+
+Generic devcontainer template with Docker-in-Docker support. Useful for isolating project environments and avoiding port conflicts (e.g., running multiple Supabase instances).
+
+### Initial Setup
+
+Add dotfiles settings to VS Code `settings.json`:
+```json
+{
+  "dotfiles.repository": "https://github.com/ryutooooo/dotfiles",
+  "dotfiles.installCommand": "link-dotfiles.sh",
+  "dotfiles.targetPath": "~/dotfiles"
+}
+```
+
+### Usage
+
+```sh
+# 1. Copy devcontainer template to your project
+cp -r ~/dotfiles/.devcontainer /path/to/project/
+
+# 2. Customize if needed (e.g., add language features)
+#    Edit .devcontainer/devcontainer.json:
+#    "features": {
+#      "ghcr.io/devcontainers/features/node:1": { "version": "22" }
+#    }
+
+# 3. Start devcontainer
+cd /path/to/project
+devcontainer up --workspace-folder . \
+  --dotfiles-repository https://github.com/ryutooooo/dotfiles \
+  --dotfiles-install-command link-dotfiles.sh
+
+# 4. Enter the container
+docker exec -it $(docker ps -q -l) bash
+```
+
+### Port Forwarding
+
+When you need to access services running inside the devcontainer from your host (e.g., Supabase Studio in browser):
+
+```sh
+# Forward specific ports
+dev-forward <project-name> <port1> [port2] ...
+dev-forward my-project 3000 5432
+
+# Supabase preset (forwards 54321-54324)
+dev-forward-supabase my-project
+
+# List running devcontainers
+dev-forward
+```
+
+The `<project-name>` can be any part of the project path (case-insensitive partial match).
+
+### Features Included
+
+- **Docker-in-Docker**: Run containers inside the devcontainer
+- **Neovim**: Pre-configured with vim-plug (plugins cached in Docker volume)
+- **SSHD**: Enables on-demand port forwarding from host
+- **SSH keys**: Mounted read-only for git operations
