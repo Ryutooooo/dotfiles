@@ -55,8 +55,8 @@ FONT_DIR="$HOME/Library/Fonts"
 if ls "$FONT_DIR"/Cica*.ttf >/dev/null 2>&1; then
     echo "Cica font is already installed."
 else
-    CICA_VERSION="5.0.2"
-    CICA_ZIP="Cica_v${CICA_VERSION}_with_emoji.zip"
+    CICA_VERSION="5.0.3"
+    CICA_ZIP="Cica_v${CICA_VERSION}.zip"
     CICA_URL="https://github.com/miiton/Cica/releases/download/v${CICA_VERSION}/${CICA_ZIP}"
 
     curl -fSL -o "/tmp/${CICA_ZIP}" "$CICA_URL"
