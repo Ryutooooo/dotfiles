@@ -41,9 +41,6 @@ if [ -f ~/.bashrc ] ; then
 . ~/.bashrc
 fi
 
-export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
 echo ".bash_profile loaded"
 . "$HOME/.cargo/env"
 
