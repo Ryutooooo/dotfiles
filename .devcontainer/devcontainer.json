@@ -2,10 +2,13 @@
   "name": "dev",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
-    "ghcr.io/devcontainers-extra/features/neovim-apt-get:1": {}
+    "ghcr.io/devcontainers-extra/features/neovim-apt-get:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/sshd:1": {}
   },
   "mounts": [
-    "source=nvim-data,target=/home/vscode/.local/share/nvim,type=volume"
+    "source=nvim-data,target=/home/vscode/.local/share/nvim,type=volume",
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,readonly"
   ],
   "postCreateCommand": "nvim --headless +PlugInstall +qall 2>/dev/null || true"
 }

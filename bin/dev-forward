@@ -1,0 +1,54 @@
+#!/bin/bash
+set -euo pipefail
+
+# Usage: dev-forward <project-name-or-path> <port1> [port2] ...
+# Example: dev-forward my-project 54322 54323
+
+if [ $# -lt 2 ]; then
+  echo "Usage: dev-forward <project> <port1> [port2] ..."
+  echo "Example: dev-forward my-project 54322 54323"
+  exit 1
+fi
+
+PROJECT=$1
+shift
+PORTS=("$@")
+
+# Find devcontainer by project name (matches partial path)
+CONTAINER=$(docker ps --filter "label=devcontainer.local_folder" --format '{{.ID}} {{.Label "devcontainer.local_folder"}}' \
+  | grep -i "$PROJECT" \
+  | head -1 \
+  | awk '{print $1}')
+
+if [ -z "$CONTAINER" ]; then
+  echo "Error: No devcontainer found for project: $PROJECT"
+  echo ""
+  echo "Running devcontainers:"
+  docker ps --filter "label=devcontainer.local_folder" --format '  {{.Label "devcontainer.local_folder"}}'
+  exit 1
+fi
+
+# Get container IP (works with OrbStack's routable container IPs)
+CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' "$CONTAINER" | head -1)
+
+if [ -z "$CONTAINER_IP" ]; then
+  echo "Error: Could not get IP for container $CONTAINER"
+  exit 1
+fi
+
+# Build SSH port forward arguments
+PORT_ARGS=""
+PORT_LIST=""
+for PORT in "${PORTS[@]}"; do
+  PORT_ARGS="$PORT_ARGS -L ${PORT}:localhost:${PORT}"
+  PORT_LIST="$PORT_LIST $PORT"
+done
+
+echo "Forwarding ports:$PORT_LIST"
+echo "From: $PROJECT ($CONTAINER)"
+echo "Press Ctrl+C to stop"
+echo ""
+
+# SSH tunnel (StrictHostKeyChecking=no for convenience in dev)
+ssh -N -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+  $PORT_ARGS vscode@"$CONTAINER_IP"

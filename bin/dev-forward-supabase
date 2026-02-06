@@ -1,0 +1,18 @@
+#!/bin/bash
+# Shortcut for forwarding common Supabase ports
+# Usage: dev-forward-supabase <project>
+
+if [ $# -lt 1 ]; then
+  echo "Usage: dev-forward-supabase <project>"
+  exit 1
+fi
+
+# Supabase default ports:
+# 54321 - API
+# 54322 - Database (PostgreSQL)
+# 54323 - Studio
+# 54324 - Inbucket (email testing)
+# 54325 - Auth
+# 54326 - Storage
+
+exec dev-forward "$1" 54321 54322 54323 54324

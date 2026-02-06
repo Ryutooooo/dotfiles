@@ -293,4 +293,4 @@ echo ".bashrc loaded"
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
 
 alias claude-mem='bun "/Users/ryutooooo/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$HOME/.local/bin:$PATH"
