@@ -26,7 +26,7 @@ get_hash() {
 
 HASH=$(get_hash "$SESSION_NAME")
 HUE=$(( 16#${HASH:0:4} % 360 ))
-SATURATION=65
+SATURATION=80
 
 # --- HSL to RGB 変換 (整数演算、精度 x1000) ---
 # Arguments: H (0-360), S (0-100), L (0-100)
@@ -98,40 +98,40 @@ adaptive_fg() {
 }
 
 # --- variant ごとの lightness 定義 ---
-#   base:   15% (最暗、ステータスバー背景)
-#   light1: 22%
-#   light2: 28%
-#   light3: 34%
-#   light4: 40% (最明)
+#   base:   25% (最暗、ステータスバー背景)
+#   light1: 32%
+#   light2: 38%
+#   light3: 44%
+#   light4: 50% (最明)
 case "$VARIANT" in
     base)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 15)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 25)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     light1)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 22)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 32)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     light2)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 28)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 38)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     light3)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 34)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 44)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     light4)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 40)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 50)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     fg)
         # light1/light2 背景用の前景色
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 28)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 38)"
         adaptive_fg "$r" "$g" "$b"
         ;;
     fg_light)
         # light3/light4 背景用の前景色
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 40)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 50)"
         adaptive_fg "$r" "$g" "$b"
         ;;
     *)
