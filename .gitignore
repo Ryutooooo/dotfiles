@@ -3,3 +3,6 @@
 .fzf.bash
 .gitconfig
 .devcontainer/.claude-credentials.json
+.claude/hooks/notification-click.sh
+.claude/hooks/click.log
+.nvimlog
