@@ -7,6 +7,7 @@
 #      /plugin marketplace add thedotmack/claude-mem
 #      /plugin marketplace add OthmanAdi/planning-with-files
 #      /plugin marketplace add VoltAgent/awesome-claude-code-subagents
+#      /plugin marketplace add wshobson/agents
 #
 #   2. Install each plugin:
 #      /plugin install plugin-name@marketplace-name

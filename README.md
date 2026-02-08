@@ -162,6 +162,7 @@ Configuration for Claude Code CLI is managed in `.claude/` and symlinked to `~/.
 /plugin marketplace add thedotmack/claude-mem
 /plugin marketplace add OthmanAdi/planning-with-files
 /plugin marketplace add VoltAgent/awesome-claude-code-subagents
+/plugin marketplace add wshobson/agents
 
 # 2. Install plugins (plugin-name@marketplace-name)
 /plugin install frontend-design@claude-plugins-official
