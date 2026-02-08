@@ -144,33 +144,13 @@ Configuration for Claude Code CLI is managed in `.claude/` and symlinked to `~/.
 | Directory/File | Purpose |
 |----------------|---------|
 | `CLAUDE.md` | Personal work rules and methodology |
-| `settings.json` | Permissions, hooks, plugin settings |
+| `settings.json` | Core settings (permissions, MCP servers) |
 | `commands/` | Custom commands (e.g., `/review-and-fix`) |
 | `agents/` | Custom agent definitions |
 | `hooks/` | Event hook scripts |
-| `plugins/plugins.txt` | Plugin list for sync across machines |
+| `plugins/plugins.txt` | Plugin wishlist (manual install reference) |
 
-### Plugin Sync
+### Settings Management
 
-Plugins are not automatically synced. Use these scripts to manage them:
-
-```sh
-# Install plugins from list (on new machine)
-~/.claude/plugins/install-plugins.sh
-
-# Preview without installing
-~/.claude/plugins/install-plugins.sh --dry-run
-
-# Export current plugins to list (after installing new plugins)
-~/.claude/plugins/export-plugins.sh
-
-# Preview export
-~/.claude/plugins/export-plugins.sh --stdout
-```
-
-### Workflow
-
-1. Install a new plugin: `/install marketplace/plugin-name`
-2. Export to list: `~/.claude/plugins/export-plugins.sh`
-3. Commit `plugins.txt`
-4. On another machine: `~/.claude/plugins/install-plugins.sh`
+- **`settings.json`**: Declaratively managed in dotfiles. MCP servers and permissions are configured here.
+- **Plugins**: Cannot be managed via `settings.json`. Install manually in an interactive session with `/install marketplace/plugin-name`. See `plugins/plugins.txt` for the wishlist.

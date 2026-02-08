@@ -22,7 +22,7 @@ statsig/
 ide/
 downloads/
 
-# Plugin cache (reinstalled via install-plugins.sh)
+# Plugin cache (reinstalled via /install in interactive session)
 plugins/cache/
 plugins/repos/
 plugins/marketplaces/

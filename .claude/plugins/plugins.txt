@@ -1,9 +1,8 @@
-# Claude Code Plugin List
-# Format: marketplace/plugin-name[@version]
+# Claude Code Plugin Wishlist
+# Format: marketplace/plugin-name
 # Lines starting with # are ignored
 #
-# Install: ~/.claude/plugins/install-plugins.sh
-# Export:  ~/.claude/plugins/export-plugins.sh
+# Install manually: claude > /install marketplace/plugin-name
 
 # === Official Plugins ===
 claude-plugins-official/frontend-design
