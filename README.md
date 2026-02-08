@@ -166,8 +166,6 @@ Configuration for Claude Code CLI is managed in `.claude/` and symlinked to `~/.
 # 2. Install plugins (plugin-name@marketplace-name)
 /plugin install frontend-design@claude-plugins-official
 /plugin install swift-lsp@claude-plugins-official
-/plugin install multi-platform-apps@claude-code-workflows
-# ... see plugins/plugins.txt for full list
 /plugin install claude-mem@thedotmack
 /plugin install planning-with-files@planning-with-files
 /plugin install voltagent-biz@voltagent-subagents
