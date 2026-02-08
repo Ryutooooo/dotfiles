@@ -44,8 +44,6 @@ dotfiles/
 │   └── ...
 ├── starship.toml       # Starship prompt config
 ├── bin/                # Utility scripts
-│   ├── dev-forward     # Port forwarding for devcontainers
-│   └── dev-forward-supabase
 ├── .claude/            # Claude Code configuration
 │   ├── CLAUDE.md       # Personal work rules
 │   ├── settings.json   # Core settings
@@ -77,63 +75,54 @@ brew bundle dump --force
 
 Generic devcontainer template with Docker-in-Docker support. Useful for isolating project environments and avoiding port conflicts (e.g., running multiple Supabase instances).
 
-### Initial Setup
+### Prerequisites
 
-Add dotfiles settings to VS Code `settings.json`:
-```json
-{
-  "dotfiles.repository": "https://github.com/ryutooooo/dotfiles",
-  "dotfiles.installCommand": "link-dotfiles.sh",
-  "dotfiles.targetPath": "~/dotfiles"
-}
+Add to `~/.bash_profile` (automatically done by setup):
+```sh
+# Claude Code credentials for devcontainer
+if command -v security >/dev/null 2>&1; then
+  export CLAUDE_CREDENTIALS=$(security find-generic-password -s 'Claude Code-credentials' -w 2>/dev/null)
+fi
 ```
 
 ### Usage
 
 ```sh
-# 1. Copy devcontainer template to your project
-cp -r ~/dotfiles/.devcontainer /path/to/project/
+# Start a devcontainer (any repository)
+devc ~/path/to/repo
 
-# 2. Customize if needed (e.g., add language features)
-#    Edit .devcontainer/devcontainer.json:
-#    "features": {
-#      "ghcr.io/devcontainers/features/node:1": { "version": "22" }
-#    }
+# Start from current directory
+devc
 
-# 3. Start devcontainer
-cd /path/to/project
-devcontainer up --workspace-folder . \
-  --dotfiles-repository https://github.com/ryutooooo/dotfiles \
-  --dotfiles-install-command link-dotfiles.sh
+# Re-attach to existing container
+devc ~/path/to/repo
 
-# 4. Enter the container
-docker exec -it $(docker ps -q -l) bash
+# Remove a container
+devc --rm ~/path/to/repo
 ```
 
 ### Port Forwarding
 
-When you need to access services running inside the devcontainer from your host (e.g., Supabase Studio in browser):
+When you need to access services running inside the devcontainer from your host (e.g., Supabase, dev server):
 
 ```sh
-# Forward specific ports
-dev-forward <project-name> <port1> [port2] ...
-dev-forward my-project 3000 5432
+# Forward ports from current directory's container
+devc-forward 54321 3000
 
-# Supabase preset (forwards 54321-54324)
-dev-forward-supabase my-project
+# Forward ports from a specific container
+devc-forward ~/path/to/repo 54321 3000 8000
 
-# List running devcontainers
-dev-forward
+# Stop forwarding
+# Ctrl+C
 ```
-
-The `<project-name>` can be any part of the project path (case-insensitive partial match).
 
 ### Features Included
 
 - **Docker-in-Docker**: Run containers inside the devcontainer
 - **Neovim**: Pre-configured with vim-plug (plugins cached in Docker volume)
-- **SSHD**: Enables on-demand port forwarding from host
+- **Claude Code**: Subscription auth forwarded from host via macOS Keychain
 - **SSH keys**: Mounted read-only for git operations
+- **socat**: On-demand port forwarding without SSH auth
 
 ## Claude Code
 
