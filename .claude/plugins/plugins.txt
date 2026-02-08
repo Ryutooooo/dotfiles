@@ -2,7 +2,14 @@
 # Format: marketplace/plugin-name
 # Lines starting with # are ignored
 #
-# Install manually: claude > /install marketplace/plugin-name
+# Setup:
+#   1. Add third-party marketplaces:
+#      /plugin marketplace add thedotmack/claude-mem
+#      /plugin marketplace add OthmanAdi/planning-with-files
+#      /plugin marketplace add VoltAgent/awesome-claude-code-subagents
+#
+#   2. Install each plugin:
+#      /plugin install plugin-name@marketplace-name
 
 # === Official Plugins ===
 claude-plugins-official/frontend-design
