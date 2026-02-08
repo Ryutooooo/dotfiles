@@ -155,6 +155,90 @@ ghq_cd() {
   cd $(echo "$(ghq root)/$(ghq_selector)")
 }
 
+# Launch devcontainer with shared config, dotfiles, and Claude auth
+# Usage: devc [workspace_path]
+# Usage: devc [workspace_path]          - attach or create
+#        devc --rm [workspace_path]     - remove container
+devc() {
+  local remove=false
+  local workspace="."
+
+  for arg in "$@"; do
+    case "$arg" in
+      --rm) remove=true ;;
+      *) workspace="$arg" ;;
+    esac
+  done
+
+  workspace=$(cd "$workspace" && pwd)
+  local name=$(basename "$workspace")
+  local config=~/dotfiles/.devcontainer/devcontainer.json
+  local container_id=$(docker ps -aq --filter "label=devcontainer.local_folder=$workspace")
+
+  if $remove; then
+    if [ -n "$container_id" ]; then
+      docker rm -f "$container_id"
+      echo "Removed container: $name"
+    else
+      echo "No container found: $name"
+    fi
+    return
+  fi
+
+  if [ -n "$container_id" ]; then
+    docker start "$container_id" > /dev/null 2>&1
+    devcontainer exec --workspace-folder "$workspace" --config "$config" bash
+  else
+    devcontainer up \
+      --workspace-folder "$workspace" \
+      --config "$config" \
+      --dotfiles-repository https://github.com/ryutooooo/dotfiles \
+      --dotfiles-install-command link-dotfiles.sh \
+    && container_id=$(docker ps -aq --filter "label=devcontainer.local_folder=$workspace") \
+    && docker rename "$container_id" "$name" 2>/dev/null; \
+    devcontainer exec --workspace-folder "$workspace" --config "$config" bash
+  fi
+}
+
+# Forward ports from a running devcontainer to host via socat
+# Usage: devc-forward [workspace_path] <port> [port2 ...]
+# Example: devc-forward 54321 3000        (current directory)
+#          devc-forward ~/my-repo 54321   (specify workspace)
+devc-forward() {
+  local workspace="$PWD"
+  local ports=()
+
+  for arg in "$@"; do
+    if [[ "$arg" =~ ^[0-9]+$ ]]; then
+      ports+=("$arg")
+    else
+      workspace=$(cd "$arg" 2>/dev/null && pwd || echo "$arg")
+    fi
+  done
+
+  if [ ${#ports[@]} -eq 0 ]; then
+    echo "Usage: devc-forward [workspace_path] <port> [port2 ...]"
+    return 1
+  fi
+
+  local container_id=$(docker ps --filter "label=devcontainer.local_folder=$workspace" -q | head -1)
+  if [ -z "$container_id" ]; then
+    echo "No running devcontainer found for $workspace"
+    return 1
+  fi
+
+  local pids=()
+  for port in "${ports[@]}"; do
+    socat "TCP-LISTEN:$port,reuseaddr,fork" EXEC:"docker exec -i $container_id socat STDIO TCP\:localhost\:$port" &
+    pids+=($!)
+    echo "Forwarding localhost:$port -> container:$port"
+  done
+
+  echo "Press Ctrl+C to stop"
+  trap "kill ${pids[*]} 2>/dev/null; trap - INT; echo 'Stopped'" INT
+  wait
+}
+
 # tmux shortcut
 tm() {
   if [ -z $1 ]; then

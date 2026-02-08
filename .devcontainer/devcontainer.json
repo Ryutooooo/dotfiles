@@ -14,6 +14,6 @@
   "containerEnv": {
     "CLAUDE_CREDENTIALS": "${localEnv:CLAUDE_CREDENTIALS}"
   },
-  "postCreateCommand": "nvim --headless +PlugInstall +qall 2>/dev/null || true && npm install -g @anthropic-ai/claude-code",
-  "postStartCommand": "[ -n \"$CLAUDE_CREDENTIALS\" ] && mkdir -p \"$(readlink -f ~/.claude)\" && echo \"$CLAUDE_CREDENTIALS\" > \"$(readlink -f ~/.claude)/.credentials.json\" && chmod 600 \"$(readlink -f ~/.claude)/.credentials.json\" || true"
+  "postCreateCommand": "nvim --headless +PlugInstall +qall 2>/dev/null || true && npm install -g @anthropic-ai/claude-code && sudo apt-get update && sudo apt-get install -y socat",
+  "postStartCommand": "[ -n \"$CLAUDE_CREDENTIALS\" ] && mkdir -p \"$(readlink -f ~/.claude)\" && echo \"$CLAUDE_CREDENTIALS\" > \"$(readlink -f ~/.claude)/.credentials.json\" && chmod 600 \"$(readlink -f ~/.claude)/.credentials.json\" && node -e \"const f=require('os').homedir()+'/.claude.json';const fs=require('fs');let d={};try{d=JSON.parse(fs.readFileSync(f))}catch(e){}d.hasCompletedOnboarding=true;d.lastOnboardingVersion='2.1.37';fs.writeFileSync(f,JSON.stringify(d,null,2))\" || true"
 }
