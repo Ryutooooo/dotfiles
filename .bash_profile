@@ -46,3 +46,8 @@ echo ".bash_profile loaded"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Claude Code credentials for devcontainer
+if command -v security >/dev/null 2>&1; then
+  export CLAUDE_CREDENTIALS=$(security find-generic-password -s 'Claude Code-credentials' -w 2>/dev/null)
+fi

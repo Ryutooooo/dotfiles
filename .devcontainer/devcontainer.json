@@ -11,5 +11,9 @@
     "source=nvim-data,target=/home/vscode/.local/share/nvim,type=volume",
     "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,readonly"
   ],
-  "postCreateCommand": "nvim --headless +PlugInstall +qall 2>/dev/null || true && npm install -g @anthropic-ai/claude-code"
+  "containerEnv": {
+    "CLAUDE_CREDENTIALS": "${localEnv:CLAUDE_CREDENTIALS}"
+  },
+  "postCreateCommand": "nvim --headless +PlugInstall +qall 2>/dev/null || true && npm install -g @anthropic-ai/claude-code",
+  "postStartCommand": "[ -n \"$CLAUDE_CREDENTIALS\" ] && mkdir -p \"$(readlink -f ~/.claude)\" && echo \"$CLAUDE_CREDENTIALS\" > \"$(readlink -f ~/.claude)/.credentials.json\" && chmod 600 \"$(readlink -f ~/.claude)/.credentials.json\" || true"
 }

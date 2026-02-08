@@ -2,3 +2,4 @@
 .tmux/plugins
 .fzf.bash
 .gitconfig
+.devcontainer/.claude-credentials.json
