@@ -98,40 +98,40 @@ adaptive_fg() {
 }
 
 # --- variant ごとの lightness 定義 ---
-#   base:   25% (最暗、ステータスバー背景)
-#   light1: 32%
-#   light2: 38%
-#   light3: 44%
-#   light4: 50% (最明)
+#   base:   20% (最暗、ステータスバー背景)
+#   light1: 30%
+#   light2: 40%
+#   light3: 50%
+#   light4: 60% (最明)
 case "$VARIANT" in
     base)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 25)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 20)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     light1)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 32)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 30)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     light2)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 38)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 40)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     light3)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 44)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 50)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     light4)
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 50)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 60)"
         rgb_to_hex "$r" "$g" "$b"
         ;;
     fg)
         # light1/light2 背景用の前景色
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 38)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 40)"
         adaptive_fg "$r" "$g" "$b"
         ;;
     fg_light)
         # light3/light4 背景用の前景色
-        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 50)"
+        read -r r g b <<< "$(hsl_to_rgb "$HUE" "$SATURATION" 60)"
         adaptive_fg "$r" "$g" "$b"
         ;;
     *)
