@@ -99,6 +99,7 @@ call plug#end()
 lua << EOF
 -- color
 vim.o.termguicolors = true
+
 -- Flutter
 require('flutter-tools').setup {}
 --

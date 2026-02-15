@@ -1,22 +1,6 @@
 {
-  "permissions": {},
   "includeCoAuthoredBy": false,
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true,
-    "claude-mem@thedotmack": true,
-    "planning-with-files@planning-with-files": true,
-    "voltagent-biz@voltagent-subagents": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "agent-orchestration@claude-code-workflows": true,
-    "javascript-typescript@claude-code-workflows": true,
-    "vercel@claude-plugins-official": true,
-    "multi-platform-apps@claude-code-workflows": true,
-    "figma@claude-plugins-official": true,
-    "ui-design@claude-code-workflows": true,
-    "git-pr-workflows@claude-code-workflows": true,
-    "payment-processing@claude-code-workflows": true
-  },
+  "permissions": {},
   "hooks": {
     "Stop": [
       {
@@ -38,5 +22,24 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "claude-mem@thedotmack": true,
+    "planning-with-files@planning-with-files": true,
+    "voltagent-biz@voltagent-subagents": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "agent-orchestration@claude-code-workflows": true,
+    "javascript-typescript@claude-code-workflows": true,
+    "vercel@claude-plugins-official": true,
+    "multi-platform-apps@claude-code-workflows": true,
+    "figma@claude-plugins-official": true,
+    "ui-design@claude-code-workflows": true,
+    "git-pr-workflows@claude-code-workflows": true,
+    "payment-processing@claude-code-workflows": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "python-development@claude-code-workflows": true,
+    "supabase@claude-plugins-official": true
   }
 }
